@@ -42,7 +42,7 @@
 					
 					<!-- 노트북 목록 -->
 			 		<ul style="overflow:scroll;border:1px solid red; margin:0px;height:600px;">
-			 		 	<li onclick="window.location='/'">전체보기</li>
+			 		 	<li onclick="window.location='/'">전체보기입니다</li>
 						<li th:each="book : ${session.books}" th:object="${book}" th:attr="data-bookIndex=*{bookIndex}"
 							th:onclick="|javascript:selectBook(this.getAttribute('data-bookIndex'))|" th:text="*{bookName}">123</li>
 					</ul >
