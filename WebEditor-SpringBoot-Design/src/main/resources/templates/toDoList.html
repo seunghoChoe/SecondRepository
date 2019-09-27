@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div th:fragment="toDoList" >
+	<table style="width:100%">
+	<tr>
+		<td style="border: 1px solid black; width:33%;">
+			<div>
+				<h2>To Do</h2>
+			</div>
+			<div style="border: 2px solid gray;"th:each="note : ${toDoNotes}" th:object="${note}">
+				<div style="display:inline-block;"th:text=*{textTitle}></div>
+				<input type="button" value="Doing" th:attr="data-noteIndex=*{textIndex}"
+				 th:onclick="|javascript:goToDoing(this.getAttribute('data-noteIndex'))|">
+				<input type="button" value="Done" th:attr="data-noteIndex=*{textIndex}"
+				th:onclick="|javascript:goToDone(this.getAttribute('data-noteIndex'))|">
+			</div>
+		</td>
+		<td style="border: 1px solid black; width:33%;">
+			<div>
+				<h2>Doing</h2>
+			</div>
+			<div style="border: 2px solid gray;"th:each="note : ${doingNotes}" th:object="${note}">
+				<div style="display:inline-block;"th:text=*{textTitle}></div>
+				<input type="button" value="ToDo" th:attr="data-noteIndex=*{textIndex}"
+				 th:onclick="|javascript:goToToDo(this.getAttribute('data-noteIndex'))|">
+				<input type="button" value="Done" th:attr="data-noteIndex=*{textIndex}"
+				th:onclick="|javascript:goToDone(this.getAttribute('data-noteIndex'))|">
+			</div>
+		</td>
+		<td style="border: 1px solid black; width:33%;">
+				<div>
+					<h2>Done</h2>
+				</div>
+				<div style="border: 2px solid gray;"th:each="note : ${doneNotes}" th:object="${note}">
+					<div style="display:inline-block;"th:text=*{textTitle}></div>
+					<input type="button" value="Doing" th:attr="data-noteIndex=*{textIndex}"
+				 th:onclick="|javascript:goToDoing(this.getAttribute('data-noteIndex'))|">
+					<input type="button" value="Done" th:attr="data-noteIndex=*{textIndex}"
+					th:onclick="|javascript:goToDone(this.getAttribute('data-noteIndex'))|">
+				</div>
+		</td>
+	</tr>
+	</table>
+</div>
+<script>
+	
+</script>
+
+</body>
+</html>

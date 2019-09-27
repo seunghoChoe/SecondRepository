@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="http://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/dff711313e.js"></script>
+<style>
+	body {
+		font-family: 'Jeju Gothic', sans-serif;
+	}
+	#navagationCell {
+		width:19%; 
+		border:1px solid black; 
+		margin:0px; 
+		padding:5px; 
+		background-color:#0B3B39; 
+		color:#A4A4A4;
+		line-height:2;
+		vertical-align:top
+	}
+
+</style>
+</head>
+<body style="padding:0;">
+	<div style="border:1px solid black;width:100%;padding:5px">
+		<table style="border:2px solid gray; width:100%; padding:0px;border-collapse:collapse;">
+			<tr style="padding:0px;">
+				<td id="navagationCell" style="">
+				
+					<!-- 노트북 목록 상단 -->
+					<div style="height:100px; border:1px solid black;" >
+						<div style="border:1px solid black;margin-top:15px;" onclick="createNoteBook()">
+							<i class="fas fa-plus-square" style="font-size:2em;color:#79D681;margin-left:5px;vertical-align:-15%;"></i>
+							새노트북 만들기
+						</div>
+						<div style="border:1px solid black;" onclick="callCreater()">
+							<i class="fas fa-plus-square" style="font-size:2em;color:#79D681;margin-left:5px;vertical-align:-15%;"></i>
+							새노트 쓰기
+						</div>
+					</div>	
+					
+					<!-- 노트북 목록 -->
+			 		<ul style="overflow:scroll;border:1px solid red; margin:0px;height:600px;">
+			 		 	<li onclick="window.location='/'">전체보기</li>
+						<li th:each="book : ${session.books}" th:object="${book}" th:attr="data-bookIndex=*{bookIndex}"
+							th:onclick="|javascript:selectBook(this.getAttribute('data-bookIndex'))|" th:text="*{bookName}">123</li>
+					</ul >
+				</td>
+				
+				
+				<td style="width:28%; border:1px solid black; margin:0px; padding:5px; vertical-align:top; background-color:#EBF1EC;">
+					<!-- 노트 목록 상단 -->
+					<div style="height:100px; border:1px solid black; border-bottom:2px solid #A4A4A4; padding:0px;">
+						<h3 th:text="${session.selectedBook.bookName}" style="margin-left:15px;"></h3>
+						<div style="border:1px solid black;height:40px;text-align:right;padding-right:10px;">
+							<span style="background-color:green"  th:attr="data-bookName=${session.selectedBook.bookName}" 
+							th:onclick="|javascript:deleteNoteBook(this.getAttribute('data-bookName'),${session.selectedBook.bookIndex})|">노트북 삭제</span>
+							<i class="fas fa-align-center"></i>
+							<i class="fas fa-filter"></i>
+							<i class="fas fa-bars"></i>
+						</div>
+					</div>	
+					
+					<!-- 노트 카드 목록   -->
+					<div style="overflow:scroll;border:1px solid red; height:600px;line-height:0.8;">
+						<div style="border-bottom:2px solid #A4A4A4;list-style:none;padding-left:15px;" th:each="note : ${notes}" th:object="${note}" th:attr="data-textIndex=*{textIndex}"
+							th:onclick="|javascript:selectNote(this.getAttribute('data-textIndex'))|">
+							<h3 th:text="*{textTitle}"></h3>
+							<p style="font-size:0.7em;" th:text="*{textContent}"></p>
+							<p style="font-size:0.7em; color:#DED9D9" th:text="*{textDate}"></p>	
+						</div>
+					</div>
+				</td>
+				
+				
+				<td style="width:52%; border:1px solid black; margin:0px; padding:5px;">
+					<!-- 노트 편집기 화면 -->
+					<div th:if="${editorState == 0}" style="border: 1px solid red"></div>
+					<div th:if="${editorState == 1}" th:include="Updater :: updater" style="border: 1px solid red" th:object="${selectedNote}">
+						<h1>editor-include</h1>
+					</div>
+					<div th:if="${editorState == 2}" th:include="Creater :: creater" style="border: 1px solid red"></div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	<script th:inline="javascript">
+		function createNoteBook() {
+			var message = "새로 만들 노트북의 이름을 입력하세요!";
+			var bookName = prompt(message);
+			if(bookName != null) {
+				window.location = '/createNoteBook?bookName='+bookName;
+			}
+		}
+		
+		function selectBook(bookIndex) {
+			window.location='/' + bookIndex;
+		}
+		
+		function selectNote(textIndex) {
+			console.log(textIndex);
+			window.location='/' + (/*[[${session.selectedBook.bookIndex}]]*/) + '/' + textIndex;
+		}
+		
+		function callCreater() {
+			window.location='/callCreater';
+		}
+		
+		function showMenu() {
+			
+		}
+	
+		function checkDelete(textTitle, textIndex) {
+			var message =textTitle + "를 삭제하시겠습니까?";
+			if(confirm(message)){
+				window.location='/deleteNote?textIndex=' + textIndex;
+			}
+		}
+		
+		function deleteNoteBook(bookName, bookIndex) {
+			var message = "노트북" + bookName + "를 삭제하시겠습니까?";
+			if(confirm(message)){
+				window.location = '/deleteNoteBook?bookIndex='+ bookIndex;
+			}
+		}
+		
+		function goToToDo(noteIndex) {
+			window.location = 'goTo?textState=ToDo&noteIndex='+noteIndex;
+			alert('ToDo' + noteIndex);
+		}
+		
+		function goToDoing(noteIndex) {
+			window.location = 'goTo?textState=Doing&noteIndex='+noteIndex;
+			alert('Doing' + noteIndex);
+		}
+		function goToDone(noteIndex) {
+			window.location = 'goTo?textState=Done&noteIndex='+noteIndex;
+			alert('Done' + noteIndex);
+		}
+	
+	</script>
+</body>
+</html>

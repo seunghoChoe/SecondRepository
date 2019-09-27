@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:fragment="creater" style="border:1px solid black">
+		<h1>텍스트를 입력하세요.</h1>
+		<form action="/createNewNote" method="post">
+		    <h3>날짜 </h3>
+		    <input name="textDate" type="hidden" th:value="${session.today}">
+		    <h3>노트북 </h3>
+		    <input name="bookIndex" type="hidden" th:value="${session.selectedBook.bookIndex}">
+			<h3>제목 </h3>
+			<textArea name="textTitle"></textArea><br>
+			<h3>내용 </h3>
+			<textArea name="textContent" rows="5" cols="30"></textArea><br>
+			<input type="submit" value="생성하기">
+	    </form>
+   	</div>
+</body>
+</html>
