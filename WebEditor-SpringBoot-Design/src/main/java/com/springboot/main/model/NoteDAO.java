@@ -19,71 +19,57 @@ public class NoteDAO {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
-	private static final String MAPPER_NAME_SPACE = "mapper.noteMapper.";
-	
-	/*
-	 * Note 관련 query
+	private static final String NOTE_MAPPER_NAME_SPACE = "mapper.NoteMapper.";
+	private static final String NOTEBOOK_MAPPER_NAME_SPACE = "mapper.NoteBookMapper.";
+
+	/**
+	 * 모든 Note를 조회하는 쿼리 
 	 */
-	
 	public List<Note> getAllNote() {
-		List<Note> noteList = sqlSession.selectList(MAPPER_NAME_SPACE + "selectAllMemo");
-		return noteList;
+		return sqlSession.selectList(NOTE_MAPPER_NAME_SPACE + "selectAllNote");
 	}
 	
-	/*
-	 *  NoteBook 관련 query 
+	/**
+	 *  Note의 Index를 통해서 노트를 조회하는 쿼리 
 	 */
-	
 	public Note getNoteByIndex(int textIndex) {
-		String query ="SELECT * FROM Memo WHERE textIndex = " + textIndex + ";";
-		return jdbcTemplate.queryForObject(query, new NoteMapper());
+		return sqlSession.selectOne(NOTE_MAPPER_NAME_SPACE + "selectNoteByIndex", textIndex);
 	}
 
-	public Vector<Note> getNotesByBookIndex(int bookIndex) {
-		String query ="SELECT * FROM Memo WHERE bookIndex = " + bookIndex + ";";
-		Vector<Note> notes = new Vector<Note>();
-		List<Note> noteList = jdbcTemplate.query(query, new NoteMapper());
-		notes.addAll(noteList);
-		return notes;
-	}
-
-	public void insertNote(Note note) {
-		String query ="INSERT INTO Memo(textDate, textTitle, textContent, textState, bookIndex)"
-				+ " VALUES('" + note.getTextDate() + "', '" + note.getTextTitle() + "',"
-						+ " '" + note.getTextContent() +"', 'ToDo', " + note.getBookIndex() + ");";
-		this.jdbcTemplate.execute(query);
-	}
-	
-	
-	
-	/*
-	 *  NoteBook 관련 query 
+	/**
+	 *  NoteBook의 Index를 통해서 노트를 조회하는 쿼리 
 	 */
-
+	public List<Note> getNotesByBookIndex(int bookIndex) {
+		return sqlSession.selectList(NOTE_MAPPER_NAME_SPACE + "selectNotesByBookIndex", bookIndex);
+	}
+	
+	/**
+	 *  Note를 새롭게 입력하는 쿼리  
+	 */
+	public void insertNote(Note note) {
+		sqlSession.insert(NOTE_MAPPER_NAME_SPACE + "insertNote", note);
+	}
+	
+	
+	/**
+	 *  Note를 수정하는 쿼리   
+	 */
 	public void updateNote(Note note) {
-		String query ="UPDATE Memo"
-				+ " SET textTitle = '" + note.getTextTitle() + "', "
-					+ " textContent = '" + note.getTextContent() + "', "
-					+ " bookIndex = '" + note.getBookIndex() + "' "
-				+ "WHERE textIndex = " + note.getTextIndex() + ";";
-		System.out.println(query);
-		System.out.println(this.jdbcTemplate.update(query));
+		sqlSession.update(NOTE_MAPPER_NAME_SPACE + "updateNote", note);
 	}
 
+	/**
+	 *  Note를 삭제하는 쿼리   
+	 */
 	public void deleteNote(Note note) {
-		String query ="DELETE FROM Memo"
-				+ " WHERE"
-				+ " textIndex = " + note.getTextIndex() + " AND"
-				+ " textTitle = '" + note.getTextTitle() + "';";
-		this.jdbcTemplate.execute(query);
+		sqlSession.delete(NOTE_MAPPER_NAME_SPACE + "deleteNote", note);
 	}
 
-	public Vector<NoteBook> getAllBooks() {
-		String query ="SELECT * FROM Notebook";
-		Vector<NoteBook> books = new Vector<NoteBook>();
-		List<NoteBook> bookList = jdbcTemplate.query(query, new NoteBookMapper());
-		books.addAll(bookList);
-		return books;
+	/**
+	 *  모든 NoteBook을 조회하는 쿼리   
+	 */
+	public List<NoteBook> getAllBooks() {
+		return sqlSession.selectList(NOTEBOOK_MAPPER_NAME_SPACE + "selectAllNoteBook");
 	}
 
 	public int getBookIndexByName(String bookName) {

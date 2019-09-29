@@ -42,7 +42,7 @@ public class NoteService {
 		noteDAO.deleteNote(note);
 	}
 
-	public Vector<NoteBook> getAllBooks() {
+	public List<NoteBook> getAllBooks() {
 		return noteDAO.getAllBooks();
 	}
 

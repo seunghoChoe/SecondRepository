@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import com.springboot.main.model.Note;
+import com.springboot.main.model.NoteBook;
 
 @Configuration
 public class MyBatisConfig {
@@ -25,7 +26,7 @@ public class MyBatisConfig {
 		sqlSessionFactoryBean.setDataSource(dataSource);
 		sqlSessionFactoryBean.setMapperLocations(
 				new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*.xml"));
-		sqlSessionFactoryBean.setTypeAliases(Note.class);
+		sqlSessionFactoryBean.setTypeAliases(Note.class, NoteBook.class);
 		return sqlSessionFactoryBean.getObject();
 	}
 }

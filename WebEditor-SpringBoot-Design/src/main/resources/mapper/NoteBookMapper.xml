@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		
+		
+<mapper namespace="mapper.NoteBookMapper">
+	<resultMap type="NoteBook" id="NoteBook">
+		<result property="bookIndex" column="bookIndex" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+		<result property="bookName" column="bookName" javaType="java.lang.String" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<!-- 전체 노트북 조회  -->
+	<select id="selectAllNoteBook" resultMap="NoteBook">
+	<![CDATA[
+		SELECT *
+		FROM NoteBook
+	]]>
+	</select>
+</mapper>
