@@ -1,6 +1,7 @@
 package com.springboot.main.controller;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,7 +37,7 @@ public class NoteController {
 	public ModelAndView selectBook(@PathVariable int bookIndex, ModelAndView mav, HttpServletRequest request) throws Exception {
 		this.initialize(request);
 		
-		Vector<Note> notes = new Vector<Note>(); 
+		List<Note> notes = new Vector<Note>(); 
 		if(bookIndex == 0) {
 			notes = noteService.getAllNote();
 			request.getSession().setAttribute("selectedBook", noteService.getBookByIndex(bookIndex));
@@ -63,7 +64,7 @@ public class NoteController {
 	public ModelAndView selectNote(@PathVariable int bookIndex, @PathVariable int textIndex,
 			ModelAndView mav, HttpServletRequest request) throws Exception {
 		this.initialize(request);
-		Vector<Note> notes = noteService.getNotesByBookIndex(bookIndex);
+		List<Note> notes = noteService.getNotesByBookIndex(bookIndex);
 		request.getSession().setAttribute("selectedBook", noteService.getBookByIndex(bookIndex));
 		mav.addObject("notes", notes);
 		
@@ -84,7 +85,7 @@ public class NoteController {
 	@RequestMapping("/callCreater")
 	public ModelAndView callCreater(ModelAndView mav, HttpServletRequest request) throws Exception {
 		this.initialize(request);
-		Vector<Note> notes = noteService.getNotesByBookIndex(((NoteBook)request.getSession().getAttribute("selectedBook")).getBookIndex());
+		List<Note> notes = noteService.getNotesByBookIndex(((NoteBook)request.getSession().getAttribute("selectedBook")).getBookIndex());
 		mav.addObject("notes", notes);
 		mav.addObject("editorState", EditorState.eCreate.ordinal());
 		

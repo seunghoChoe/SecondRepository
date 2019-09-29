@@ -1,5 +1,6 @@
 package com.springboot.main.service;
 
+import java.util.List;
 import java.util.Vector;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class NoteService {
 	private NoteDAO noteDAO;
 	
 	
-	public Vector<Note> getAllNote() {
+	public List<Note> getAllNote() {
 		return this.noteDAO.getAllNote();
 	}
 
@@ -24,7 +25,7 @@ public class NoteService {
 		
 	}
 
-	public Vector<Note> getNotesByBookIndex(int bookIndex) {
+	public List<Note> getNotesByBookIndex(int bookIndex) {
 		if(bookIndex == 0) return noteDAO.getAllNote();
 		else return noteDAO.getNotesByBookIndex(bookIndex);
 	}

@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Vector;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -16,17 +17,17 @@ public class NoteDAO {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+	private static final String MAPPER_NAME_SPACE = "mapper.noteMapper.";
 	
 	/*
 	 * Note 관련 query
 	 */
 	
-	public Vector<Note> getAllNote() {
-		String query ="SELECT * FROM Memo";
-		Vector<Note> notes = new Vector<Note>();
-		List<Note> noteList = jdbcTemplate.query(query, new NoteMapper());
-		notes.addAll(noteList);
-		return notes;
+	public List<Note> getAllNote() {
+		List<Note> noteList = sqlSession.selectList(MAPPER_NAME_SPACE + "selectAllMemo");
+		return noteList;
 	}
 	
 	/*
