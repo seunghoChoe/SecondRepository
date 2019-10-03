@@ -71,70 +71,47 @@ public class NoteDAO {
 	public List<NoteBook> getAllBooks() {
 		return sqlSession.selectList(NOTEBOOK_MAPPER_NAME_SPACE + "selectAllNoteBook");
 	}
-
-	public int getBookIndexByName(String bookName) {
-		String query ="SELECT bookIndex FROM NoteBook WHERE bookName = '" + bookName + "';";
-		return this.jdbcTemplate.queryForObject(query, Integer.class);
-	}
 	
+	/**
+	 *  String값의 bookName을 받아서 새로운 NoteBook을 추가하는 쿼리  	
+	 * @param bookName
+	 */
+
 	public void insertNoteBook(String bookName) {
-		String query ="INSERT INTO NoteBook(bookName)"
-				+ " VALUES('" + bookName + "');";
-		this.jdbcTemplate.execute(query);
+		sqlSession.insert(NOTEBOOK_MAPPER_NAME_SPACE + "insertNoteBook", bookName);
 	}
 
+	/**
+	 * Integer값의 bookIndex를 받아서 NoteBook 삭제하는 쿼리
+	 * @param bookIndex
+	 */
 	public void deleteNoteBook(int bookIndex) {
-		String query ="DELETE FROM NoteBook"
-				+ " WHERE bookIndex = " + bookIndex + ";";
-		this.jdbcTemplate.execute(query);
-	}
-
-	public void goToDoing(String toState, int noteIndex) {
-		String query ="UPDATE Memo "
-				+ " SET textState = '" + toState + "'"  
-				+ " WHERE textIndex = " + noteIndex + ";";
-		System.out.println(query);
-		this.jdbcTemplate.execute(query);
-		
-	}
-
-	class NoteMapper implements RowMapper<Note> {
-		@Override
-		public Note mapRow(ResultSet rs, int rowNum) throws SQLException {
-			Note note = new Note();
-			note.setTextIndex(rs.getInt("textIndex"));
-			note.setTextTitle(rs.getString("textTitle"));
-			note.setTextContent(rs.getString("textContent"));
-			note.setTextState(rs.getString("textState"));
-			note.setTextDate(rs.getString("textDate"));
-			note.setBookIndex(rs.getInt("bookIndex"));
-			return note;
-		}
+		sqlSession.insert(NOTEBOOK_MAPPER_NAME_SPACE + "deleteNoteBook", bookIndex);
 	}
 	
-	class NoteBookMapper implements RowMapper<NoteBook> {
-
-		@Override
-		public NoteBook mapRow(ResultSet rs, int rowNum) throws SQLException {
-			NoteBook noteBook = new NoteBook();
-			noteBook.setBookIndex(rs.getInt("bookIndex"));
-			noteBook.setBookName(rs.getString("bookName"));
-			return noteBook;
-		}
-		
-	}
-
-	public Vector<Note> getNotesByState(String state) {
-		String query ="SELECT * FROM Memo WHERE textState = '" + state + "';";
-		Vector<Note> notes = new Vector<Note>();
-		List<Note> noteList = jdbcTemplate.query(query, new NoteMapper());
-		notes.addAll(noteList);
-		return notes;
-	}
-
+	/**
+	 * Integer값의 bookIndex를 받아서 노트북을 조회하는 쿼리 
+	 * @param bookIndex
+	 * @return
+	 */
 	public NoteBook getBookByIndex(int bookIndex) {
-		String query ="SELECT * FROM Notebook WHERE bookIndex = " + bookIndex;
-		NoteBook noteBook = jdbcTemplate.queryForObject(query, new NoteBookMapper());
-		return noteBook;
+		return sqlSession.selectOne(NOTEBOOK_MAPPER_NAME_SPACE + "selectNoteBookByBookIndex", bookIndex);
 	}
+
+//	public void goToDoing(String toState, int noteIndex) {
+//		String query ="UPDATE Memo "
+//				+ " SET textState = '" + toState + "'"  
+//				+ " WHERE textIndex = " + noteIndex + ";";
+//		System.out.println(query);
+//		this.jdbcTemplate.execute(query);
+//	}
+
+//	public Vector<Note> getNotesByState(String state) {
+//		String query ="SELECT * FROM Memo WHERE textState = '" + state + "';";
+//		Vector<Note> notes = new Vector<Note>();
+//		List<Note> noteList = jdbcTemplate.query(query, new NoteMapper());
+//		notes.addAll(noteList);
+//		return notes;
+//	}
+	
 }

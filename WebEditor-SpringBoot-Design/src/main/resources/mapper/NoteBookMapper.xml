@@ -17,4 +17,29 @@
 		FROM NoteBook
 	]]>
 	</select>
+	
+	<!-- 노트북Index로 노트북 조회  -->
+	<select id="selectNoteBookByBookIndex" parameterType="Integer" resultMap="NoteBook">
+	<![CDATA[
+		SELECT * 
+		FROM Notebook 
+		WHERE bookIndex = #{bookIndex}
+	]]>
+	</select>
+	
+	<!-- 새로운 노트북 생성  -->
+	<insert id="insertNoteBook" parameterType="String">
+	<![CDATA[
+		INSERT INTO NoteBook(bookName) 
+		VALUES(#{bookName});
+	]]>
+	</insert>
+	
+	<!-- Index로 노트북 삭제  -->
+	<insert id="deleteNoteBook" parameterType="Integer">
+	<![CDATA[
+		DELETE FROM NoteBook
+		WHERE bookIndex = #{bookIndex};
+	]]>
+	</insert>
 </mapper>

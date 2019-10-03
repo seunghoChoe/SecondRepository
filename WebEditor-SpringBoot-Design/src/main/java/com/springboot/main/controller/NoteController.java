@@ -49,12 +49,12 @@ public class NoteController {
 		mav.addObject("notes", notes);
 		mav.addObject("editorState", EditorState.eDefault.ordinal());
 		
-		Vector<Note> toDoNotes = noteService.getNotesByState("ToDo");
-		mav.addObject("toDoNotes", toDoNotes);
-		Vector<Note> doingNotes = noteService.getNotesByState("Doing");
-		mav.addObject("doingNotes", doingNotes);
-		Vector<Note> doneNotes = noteService.getNotesByState("Done");
-		mav.addObject("doneNotes", doneNotes);
+//		Vector<Note> toDoNotes = noteService.getNotesByState("ToDo");
+//		mav.addObject("toDoNotes", toDoNotes);
+//		Vector<Note> doingNotes = noteService.getNotesByState("Doing");
+//		mav.addObject("doingNotes", doingNotes);
+//		Vector<Note> doneNotes = noteService.getNotesByState("Done");
+//		mav.addObject("doneNotes", doneNotes);
 		
 		mav.setViewName("index");
 		return mav;
@@ -124,11 +124,11 @@ public class NoteController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping("/goTo")
-	public String goToDoing( @RequestParam("textState") String toState, @RequestParam("noteIndex") int noteIndex) throws Exception {
-		noteService.goToDoing(toState, noteIndex);
-		return "redirect:/";
-	}
+//	@RequestMapping("/goTo")
+//	public String goToDoing( @RequestParam("textState") String toState, @RequestParam("noteIndex") int noteIndex) throws Exception {
+//		noteService.goToDoing(toState, noteIndex);
+//		return "redirect:/";
+//	}
 
 	private void initialize(HttpServletRequest request) {
 		if(request.getSession().getAttribute("books") == null) {

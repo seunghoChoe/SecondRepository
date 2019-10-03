@@ -46,10 +46,6 @@ public class NoteService {
 		return noteDAO.getAllBooks();
 	}
 
-	public int getBookIndexByName(String bookName) {
-		return noteDAO.getBookIndexByName(bookName);
-	}
-
 	public void insertNoteBook(String bookName) {
 		noteDAO.insertNoteBook(bookName);
 	}
@@ -58,17 +54,16 @@ public class NoteService {
 		noteDAO.deleteNoteBook(bookIndex);
 	}
 
-	public void goToDoing(String toState, int noteIndex) {
-		noteDAO.goToDoing(toState, noteIndex);
-	}
-
-	public Vector<Note> getNotesByState(String state) {
-		return noteDAO.getNotesByState(state);
-	}
-
 	public NoteBook getBookByIndex(int bookIndex) {
 		if(bookIndex == 0) return new NoteBook(0, "전체보기");
 		else return noteDAO.getBookByIndex(bookIndex);
 	}
 
+//	public void goToDoing(String toState, int noteIndex) {
+//		noteDAO.goToDoing(toState, noteIndex);
+//	}
+//
+//	public Vector<Note> getNotesByState(String state) {
+//		return noteDAO.getNotesByState(state);
+//	}
 }
