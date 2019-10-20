@@ -1,0 +1,30 @@
+.admin_index {
+    background-color: #FFFFFF;
+    max-width: 1000px;
+    text-align: center;
+    margin: 150px auto;
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+.shadow-none {
+    background-color: #FFFFFF;
+    color: #6c6c6c;
+    border: 2px solid #c8e7fd;
+}
+
+/*#e9effe : 하늘 #ff95ca:진분홍 */
+hr {
+    height: 2px;
+    border: none;
+    background-color: #c8e7fd;
+}
+
+.btn {
+    background-color: #c8e7fd;
+    border: none;
+    color: #633f3f;
+}
+
+.fas, .fas {
+    color: #c8e7fd;
+}

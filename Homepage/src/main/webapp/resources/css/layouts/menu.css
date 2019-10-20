@@ -1,0 +1,168 @@
+.menu {
+    /* navigation bar 전체 설정 */
+    /* margin: top, right, bottom, left */
+    margin: 30px 30px 100px 30px;
+    text-align: center;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 20px;
+}
+
+.menu #tel {
+    /* tel 아이콘 이미지 */
+    width: 15px;
+    height: auto;
+}
+
+.menu #email {
+    /* email 아이콘 이미지 */
+    width: 15px;
+    height: auto;
+    margin-left: 20px;
+}
+
+.icon {
+    float: left;
+}
+
+.icon a {
+    text-decoration: none;
+}
+
+.menu ul {
+    /* navigation bar 리스트 설정 */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    display: inline-block;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.menu li {
+    /* 리스트 안의 내용들은 왼쪽부터 오른쪽 순으로 작성 */
+    float: left;
+    display: inline;
+}
+
+.menu .icon {
+    /* tel + email 전체 */
+    position: absolute;
+    float: left;
+    left: 17%;
+    padding: 12px 30px;
+    display: inline-block;
+}
+
+.menu .icon img {
+    /* tel + email 이미지 */
+    margin-left: 10px;
+}
+
+.menu li a, .menubar .dropbtn {
+    /* 가장 상위 리스트 설정 (공지사항, 학생광장 등) */
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menu li a:hover, .menubar .dropdown:hover .dropbtn {
+    /* 가장 상위 리스트에 마우스 올려놓았을 때 */
+    background-color: #d9d9d9;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.menu li.dropdown {
+    display: inline-block;
+}
+
+.menu .dropdown-content {
+    /* 하위 리스트 전체 설정 */
+    display: none;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 3);
+    z-index: 10;
+}
+
+.menu .dropdown-content a {
+    /* 하위 리스트 각각 설정 */
+    color: black;
+    padding: 12px 16px;
+    display: block;
+    text-align: left;
+}
+
+.menu .dropdown-content a:hover {
+    /* 하위 리스트에 마우스 올려놓았을 때 */
+    background-color: #f1f1f1;
+}
+
+.menu .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.search-form {
+    /* searchbar 위치 */
+    position: absolute;
+    right: -115%;
+    margin-top: 10px;
+}
+
+.search-form .form-group {
+    /* search 아이콘 안쪽 + 검색 부분 */
+    float: right;
+    transition: all 0.35s, border-radius 0s;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    border-radius: 25px;
+    border: 0.5px solid #ccc;
+}
+
+.search-form .form-group input.form-control {
+    /* searchbar 전체 */
+    padding-right: 20px;
+    border: 0 none;
+    background: transparent;
+    box-shadow: none;
+    display: block;
+}
+
+.search-form .form-group input.form-control:-moz-placeholder {
+    /* Firefox 18- */
+    display: none;
+}
+
+.search-form .form-group input.form-control::-moz-placeholder {
+    /* Firefox 19+ */
+    display: none;
+}
+
+.search-form .form-group:hover, .search-form .form-group.hover {
+    /* 마우스 hover시 열리는 검색창 */
+    width: 16em;
+    border-radius: 8px 25px 25px 8px;
+}
+
+.search-form .form-group span.form-control-feedback {
+    /* 아이콘 부분 */
+    position: absolute;
+    top: -1px;
+    right: -2px;
+    z-index: 2;
+    display: block;
+    width: 33px;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    color: black;
+    left: initial;
+    font-size: 12px;
+}

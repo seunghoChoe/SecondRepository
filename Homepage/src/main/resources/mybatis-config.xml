@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration  
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<typeAliases>
+
+		<!-- 사용자 관련 -->
+		<typeAlias type="com.demo.user.dto.UserDTO" alias="UserDTO"/>
+		<typeAlias type="com.demo.user.dto.LoginDTO" alias="LoginDTO"/>
+
+		<!-- 게시판 관련 -->
+		<typeAlias type="com.demo.board.dto.BoardDTO" alias="BoardDTO"/>
+		<typeAlias type="com.demo.board.dto.CommentDTO" alias="CommentDTO"/>
+
+		<!-- 사물함 관련 -->
+		<typeAlias type="com.demo.locker.dto.LockerDTO" alias="LockerDTO"/>
+
+	</typeAliases>
+	
+</configuration>

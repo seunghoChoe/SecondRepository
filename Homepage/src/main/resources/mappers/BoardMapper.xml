@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mappers.BoardMapper">
+
+	<resultMap type="BoardDTO" id="BoardDTO">
+		<result property="boardIdx" column="b_idx" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+		<result property="boardHit" column="b_hit" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+		<result property="boardCreateDate" column="b_create_date" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+		<result property="boardUpdateDate" column="b_update_date" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+		<result property="boardLike" column="b_like" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+		<result property="boardTitle" column="b_title" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result property="boardContent" column="b_content" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result property="boardAuthor" column="b_author" javaType="java.lang.String" jdbcType="VARCHAR"/>
+	</resultMap>
+
+	<resultMap type="CommentDTO" id="CommentDTO">
+		<result property="boardIdx" column="c_board" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+		<result property="commentIdx" column="c_idx" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+		<result property="commentCreateDate" column="c_create_date" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+		<result property="commentUpdateDate" column="c_update_date" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+		<result property="commentLike" column="c_like" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+		<result property="commentContent" column="c_content" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result property="commentAuthor" column="c_author" javaType="java.lang.String" jdbcType="VARCHAR"/>
+	</resultMap>
+
+	<!-- 게시글 페이징 목록 -->
+	<select id="boardList" parameterType="integer" resultMap="BoardDTO">
+	<![CDATA[
+		SELECT *
+		FROM boards ORDER BY b_idx DESC LIMIT #{pageNum}, 10
+	]]>
+	</select>
+
+	<!-- 게시글 상세 내용 -->
+    <select id="boardDetail" resultMap="BoardDTO">
+    <![CDATA[
+        SELECT *
+        FROM boards
+        WHERE b_idx = #{boardIdx};
+    ]]>
+    </select>
+
+	<!-- 게시글 검색 ('안녕' 검색 시, '안녕','안 녕' 모두 검색함) -->
+	<!--<select id="searchBoard" parameterType="map" resultMap="BoardDTO">-->
+	<!--<![CDATA[-->
+	<!--SELECT b_idx, b_hit, b_create_date, b_like, b_title, b_author-->
+	<!--FROM boards-->
+	<!--WHERE REPLACE(${searchOption}, ' ', '') LIKE CONCAT ('%', #{searchKeyword}, '%')-->
+	<!--ORDER BY b_idx DESC-->
+	<!--]]>-->
+	<!--</select>-->
+
+	<!-- 게시글 검색 ('안 녕' 검색 시, '안 녕' 에 대해 정확히 검색함) -->
+	<select id="searchBoard" parameterType="map" resultMap="BoardDTO">
+	<![CDATA[
+		SELECT *
+		FROM boards
+		WHERE ${searchOption} LIKE CONCAT ('%', #{searchKeyword}, '%')
+		ORDER BY b_idx DESC
+	]]>
+    </select>
+
+    <!-- 게시글 검색 (게시글 번호만) -->
+    <select id="searchBoardIdx" parameterType="map" resultMap="BoardDTO">
+	<![CDATA[
+		SELECT *
+		FROM boards
+		WHERE ${searchOption} = #{searchKeyword}
+		ORDER BY b_idx DESC
+	]]>
+    </select>
+
+	<!-- 게시글 작성 -->
+	<insert id="createBoard" parameterType="BoardDTO">
+	<![CDATA[
+		INSERT
+		INTO boards (b_idx, b_hit, b_create_date, b_update_date, b_like, b_title, b_content, b_author)
+		VALUES (#{boardIdx}, #{boardHit}, now(), now(), #{boardLike}, #{boardTitle}, #{boardContent}, #{boardAuthor})
+	]]>
+	</insert>
+    
+    <!-- 게시글 수정 -->
+    <update id="updateBoard">
+    <![CDATA[
+        UPDATE boards
+        SET b_author = #{boardAuthor}, b_update_date = now(), b_title = #{boardTitle}, b_content = #{boardContent}
+        WHERE b_idx = #{boardIdx}
+    ]]>
+    </update>
+    
+    <!-- 게시글 삭제 -->
+    <delete id="deleteBoard">
+        DELETE
+        FROM boards
+        WHERE b_idx = #{boardIdx}
+    </delete>
+    
+    <!-- 조회수 증가 -->
+    <update id="updateHit" parameterType="String">
+        UPDATE boards
+        SET b_hit = b_hit + 1 
+        WHERE b_idx = #{boardIdx}
+	</update>
+
+	<!-- 게시글 좋아요 여부 체크 -->
+	<select id="checkBoardLike" parameterType="map" resultType="int">
+	<![CDATA[
+		SELECT COUNT(*)
+		FROM board_likes
+		WHERE l_board = #{boardIdx} AND l_user = #{userId}
+	]]>
+	</select>
+
+	<!-- 게시글 좋아요 -->
+	<insert id="createBoardLike" parameterType="map">
+	<![CDATA[
+		INSERT
+		INTO board_likes (l_board, l_user)
+		VALUES (#{boardIdx}, #{userId})
+	]]>
+	</insert>
+
+	<!-- 게시글 좋아요 개수 증가 -->
+	<update id="increaseBoardLike">
+	<![CDATA[
+		UPDATE boards
+        SET b_like = b_like + 1
+        WHERE b_idx = #{boardIdx}
+	]]>
+	</update>
+
+	<!-- 게시글 좋아요 취소 -->
+	<delete id="deleteBoardLike" parameterType="map">
+	<![CDATA[
+		DELETE
+		FROM board_likes
+		WHERE l_board = #{boardIdx} AND l_user = #{userId}
+	]]>
+	</delete>
+
+	<!-- 게시글 좋아요 개수 감소 -->
+	<update id="decreaseBoardLike">
+	<![CDATA[
+		UPDATE boards
+        SET b_like = b_like - 1
+        WHERE b_idx = #{boardIdx}
+	]]>
+	</update>
+
+	<!-- 댓글 목록 -->
+	<select id="commentList" resultMap="CommentDTO">
+    <![CDATA[
+		SELECT c_board, c_idx, c_create_date, c_update_date, c_like, c_content, c_author
+		FROM boards, board_comments
+		WHERE boards.b_idx = #{boardIdx} AND c_board = #{boardIdx}
+    ]]>
+    </select>
+
+	<!-- 댓글 상세 내용 -->
+	<select id="commentDetail" resultMap="CommentDTO">
+	<![CDATA[
+		SELECT c_board, c_idx, c_create_date, c_update_date, c_like, c_content, c_author
+		FROM board_comments
+		WHERE c_idx = #{commentIdx}
+	]]>
+    </select>
+
+	<!-- 댓글 작성 -->
+	<insert id="createComment" parameterType="map">
+	<![CDATA[
+		INSERT INTO board_comments (c_board, c_create_date, c_update_date, c_content, c_author)
+		VALUES((
+			SELECT b_idx
+			FROM boards
+			WHERE b_idx = #{boardIdx}),
+			now(), now(), #{commentContent}, #{commentAuthor})
+	]]>
+	</insert>
+
+	<!-- 댓글 수정 -->
+	<update id="updateComment">
+    <![CDATA[
+        UPDATE board_comments
+        SET c_content = #{commentContent}
+        WHERE c_idx = #{commentIdx}
+    ]]>
+    </update>
+
+	<!-- 댓글 삭제 -->
+	<delete id="deleteComment">
+        DELETE
+        FROM board_comments
+        WHERE c_idx = #{commentIdx}
+    </delete>
+
+</mapper>

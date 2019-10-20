@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mappers.LockerMapper">
+
+	<resultMap type="LockerDTO" id="LockerDTO">
+		<result property="id" column="l_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+		<result property="state" column="l_state" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+		<result property="startDate" column="l_start_date" javaType="java.lang.String" jdbcType="TIMESTAMP"/>
+		<result property="finishDate" column="l_finish_date" javaType="java.lang.String" jdbcType="TIMESTAMP"/>
+		<result property="userId" column="l_user" javaType="java.lang.String" jdbcType="VARCHAR"/>
+	</resultMap>
+
+	<!-- 사물함 목록 -->
+	<select id="getLockerList" resultMap="LockerDTO">
+	<![CDATA[
+		SELECT *
+		FROM lockers;
+	]]>
+    </select>
+    
+    <!-- 사물함 목록 -->
+	<update id="applyLocker" parameterType="LockerDTO">
+	<![CDATA[
+		UPDATE lockers
+		SET l_state = 1, l_start_date = #{startDate}, l_finish_date=#{finishDate}, l_user=#{userId}
+		WHERE l_id = #{id};
+	]]>
+    </update>
+    
+    <!-- 특정 사용자가 사용하고 있는 사물함 -->
+	<select id="getUsingLocker" parameterType="String" resultMap="LockerDTO">
+	<![CDATA[
+		SELECT *
+		FROM lockers
+		WHERE l_user = #{userId}
+	]]>
+    </select>
+    
+</mapper>
