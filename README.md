@@ -21,5 +21,5 @@
 <img width="1100" alt="스크린샷 2019-10-21 오후 6 54 13" src="https://user-images.githubusercontent.com/55579896/67195624-3c615800-f434-11e9-96e5-66062833e9c0.png">
 
 ## WebEditor-SpringBoot-Design
-
+19.8 ~ 중단 개인프로젝트, 웹기반 메모장, Springboot, Thymeleaf
 
