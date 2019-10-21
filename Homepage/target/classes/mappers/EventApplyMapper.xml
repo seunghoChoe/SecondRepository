@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mappers.EventApplyMapper">
+
+    <!-- resultMap 에 id 값을 사용한다. -->
+    <resultMap id="EventApplyMap" type="EventApply">
+        <result property="applyEventId" column="apply_event_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="applyUserId" column="apply_user_id" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="applyCreatedAt" column="apply_created_at" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!-- INSERT 작업                                                                                                    INSERT 작업 -->
+    <!-- 행사 신청자 등록 -->
+    <insert id="insertEventApply" parameterType="EventApply">
+		INSERT
+		INTO event_apply (apply_event_id, apply_user_id)
+		VALUES (#{applyEventId}, #{applyUserId})
+	</insert>
+
+
+    <!-- SELECT 작업                                                                                                    SELECT 작업 -->
+    <!-- 행사 신청자 목록 조회 -->
+    <select id="selectEventApplyList" parameterType="string" resultMap="EventApplyMap">
+        SELECT *
+        FROM event_apply
+        WHERE apply_event_id = #{applyEventId}
+    </select>
+
+    <!-- 행사 신청자 상세 조회 -->
+    <select id="selectEventApply" parameterType="EventApply" resultMap="EventApplyMap">
+        SELECT *
+        FROM event_apply
+        WHERE apply_event_id = #{applyEventId} AND apply_user_id = ${applyUserId}
+    </select>
+
+
+    <!-- UPDATE 작업                                                                                                    UPDATE 작업 -->
+    <!-- 행사 신청자 수정 (별도의 행사 신청자 연락처 작성 시, 필요함) -->
+<!--    <update id="updateEventApply" parameterType="EventApply">-->
+<!--        UPDATE event_apply-->
+<!--        SET -->
+<!--        WHERE apply_event_id = #{applyEventId} AND apply_user_id = ${applyUserId}-->
+<!--    </update>-->
+
+
+    <!-- DELETE 작업                                                                                                    DELETE 작업 -->
+    <!-- 행사 신청자 삭제 -->
+    <delete id="deleteEventApply" parameterType="EventApply">
+        DELETE
+        FROM event_apply
+        WHERE apply_event_id = #{applyEventId} AND apply_user_id = ${applyUserId}
+    </delete>
+
+</mapper>

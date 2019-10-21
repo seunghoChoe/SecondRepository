@@ -1,0 +1,266 @@
+﻿*----------------------------------------------------------------------------------------------------------------------*
++ 데이터베이스
+- Database: MySQL 8 (8.X.XX)
+- Name: mvc_ict (CREATE DATABASE mvc_ict; USE mvc_ict;)
+
++ 테이블 목록
+- user
+- post
+- comment
+- post_like
+- event_post
+- event_apply
+
++ 약어 목록
+- pk: PRIMARY KEY
+- uk: UNIQUE KEY
+- fk: FOREIGN KEY
+
++ 명명 규칙
+- 테이블명은 단수형으로 사용한다.
+- 필드명은 테이블명을 접두어로 사용한다. (필드명이 너무 긴 경우, 테이블명에서 일부만 접두어로 사용하되 다른 테이블의 필드명과 중복되지 않도록 한다.)
+- UK 지정은 uk_필드명으로 사용한다. (다른 테이블의 필드명과 중복되지 않는 조건 하에)
+- FK 지정은 fk_필드명으로 사용한다. (다른 테이블의 필드명과 중복되지 않는 조건 하에)
+*----------------------------------------------------------------------------------------------------------------------*
+
+*----------------------------------------------------------------------------------------------------------------------*
++ 사용자 계정 테이블
+- 계정 권한은 USER(일반 회원), ADMIN(관리자)로 구분한다.
+
+CREATE TABLE user
+(
+    `user_id`          VARCHAR(20)  NOT NULL  COMMENT '계정 ID',
+    `user_password`    VARCHAR(20)  NOT NULL  COMMENT '계정 비밀번호',
+    `user_number`      VARCHAR(20)  NOT NULL  COMMENT '사용자 학번',
+    `user_name`        VARCHAR(20)  NOT NULL  COMMENT '사용자 이름',
+    `user_email`       VARCHAR(30)  NOT NULL  COMMENT '사용자 이메일',
+    `user_role`        VARCHAR(20)  NOT NULL  DEFAULT 'USER'  COMMENT '계정 접근 권한',
+    `user_created_at`  TIMESTAMP  NOT NULL  DEFAULT CURRENT_TIMESTAMP  COMMENT '계정 가입 일자',
+    `user_updated_at`  TIMESTAMP  NOT NULL  DEFAULT CURRENT_TIMESTAMP  COMMENT '최근 로그인 일자',
+    `user_is_enabled`  TINYINT(1)  NOT NULL  DEFAULT 0  COMMENT '계정 활성 여부(0: 활성X, 1: 활성O)',
+    `user_is_deleted`  TINYINT(1)  NOT NULL  DEFAULT 0  COMMENT '계정 삭제 여부(0: 삭제X, 1: 삭제O)',
+    PRIMARY KEY (user_id),
+    UNIQUE KEY uk_user_number (user_number),
+    UNIQUE KEY uk_user_email (user_email)
+);
+
++ 더미 데이터
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email, user_role) values ('admin1', 'test123!', '10000001', '관리자', 'admin1@mju.ac.kr', 'ADMIN');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('user1', 'test123!', '60000001', '사용자', 'user1@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('user2', 'test123!', '60000002', '사용자', 'user2@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('user3', 'test123!', '60000003', '사용자', 'user3@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('user4', 'test123!', '60000004', '사용자', 'user4@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('user5', 'test123!', '60000005', '사용자', 'user5@mju.ac.kr');
+UPDATE user SET user_is_enabled = 1;
+*----------------------------------------------------------------------------------------------------------------------*
+
+*----------------------------------------------------------------------------------------------------------------------*
++ 게시글 테이블
+- 기존 'board(게시판)' 에서 'post(게시글)' 로 변경한다.
+
+CREATE TABLE post
+(
+    `post_id`          INT  NOT NULL  AUTO_INCREMENT  COMMENT '게시글 번호',
+    `post_user_id`     VARCHAR(20)  NOT NULL  COMMENT '게시글 작성자',
+    `post_title`       VARCHAR(100)  NOT NULL  COMMENT '게시글 제목',
+    `post_content`     VARCHAR(2500)  NOT NULL  COMMENT '게시글 내용',
+    `post_created_at`  TIMESTAMP  NOT NULL  DEFAULT CURRENT_TIMESTAMP  COMMENT '게시글 생성 일자',
+    `post_updated_at`  TIMESTAMP  NOT NULL  DEFAULT CURRENT_TIMESTAMP  COMMENT '게시글 수정 일자',
+    `post_view`        INT  NOT NULL  DEFAULT 0  COMMENT '게시글 조회수',
+    `post_like`        INT  NOT NULL  DEFAULT 0  COMMENT '게시글 좋아요수',
+    `post_comment`     INT  NOT NULL  DEFAULT 0  COMMENT '게시글 댓글수',
+    `post_is_deleted`  TINYINT(1)  NOT NULL  DEFAULT 0  COMMENT '게시글 삭제 여부(0: 삭제X, 1: 삭제O)',
+    PRIMARY KEY (post_id),
+    FOREIGN KEY (post_user_id) REFERENCES user (user_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
++ 더미 데이터
+INSERT INTO post (post_user_id, post_title, post_content) values ('admin1', '테스트 제목1', '테스트 내용1');
+INSERT INTO post (post_user_id, post_title, post_content) values ('user1', '테스트 제목1', '테스트 내용1');
+INSERT INTO post (post_user_id, post_title, post_content) values ('user2', '테스트 제목2', '테스트 내용2');
+INSERT INTO post (post_user_id, post_title, post_content) values ('user3', '테스트 제목3', '테스트 내용3');
+*----------------------------------------------------------------------------------------------------------------------*
+
+*----------------------------------------------------------------------------------------------------------------------*
++ 댓글 테이블
+
+CREATE TABLE comment
+(
+    `comment_id`          INT  NOT NULL  AUTO_INCREMENT  COMMENT '댓글 번호',
+    `comment_post_id`     INT  NOT NULL  COMMENT '게시글 번호',
+    `comment_user_id`     VARCHAR(20)  NOT NULL  COMMENT '댓글 작성자',
+    `comment_content`     VARCHAR(100)  NOT NULL  COMMENT '댓글 내용',
+    `comment_created_at`  TIMESTAMP  NOT NULL  DEFAULT CURRENT_TIMESTAMP  COMMENT '댓글 생성 일자',
+    `comment_updated_at`  TIMESTAMP  NOT NULL  DEFAULT CURRENT_TIMESTAMP  COMMENT '댓글 수정 일자',
+    `comment_like`        INT  NOT NULL  DEFAULT 0  COMMENT '댓글 좋아요',
+    PRIMARY KEY (comment_id),
+    FOREIGN KEY (comment_post_id) REFERENCES post (post_id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (comment_user_id) REFERENCES user (user_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
++ 더미 데이터
+INSERT INTO comment (comment_post_id, comment_user_id, comment_content) VALUES (1, 'admin1', '테스트 댓글');
+UPDATE post SET post_comment = post_comment + 1 WHERE post_id = 1;
+*----------------------------------------------------------------------------------------------------------------------*
+
+*----------------------------------------------------------------------------------------------------------------------*
++ 게시글 좋아요 테이블
+- 필드명의 접두어는 'post_like' 대신 'like' 를 사용한다. (댓글 등의 추천 기능이 필요할 때, 'post_like' 를 사용한다.)
+
+CREATE TABLE post_like
+(
+    `like_post_id`  INT  NOT NULL  COMMENT '좋아요 게시글 번호',
+    `like_user_id`  VARCHAR(20)  NOT NULL  COMMENT '좋아요 계정 ID',
+    PRIMARY KEY (like_post_id, like_user_id),
+    FOREIGN KEY (like_post_id) REFERENCES post (post_id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (like_user_id) REFERENCES user (user_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+*----------------------------------------------------------------------------------------------------------------------*
+
+*----------------------------------------------------------------------------------------------------------------------*
++ 행사 테이블
+- 행사를 저장하는 테이블로 접두어는 'event' 를 사용한다.
+- 행사 마감은 게시글 목록에 보여지나 신청할 수 없는 행사를 의미한다. (디데이가 지난 행사)
+- 행사 삭제는 게시글 목록에 보여지지 않는 삭제된 행사를 의미한다. (작성자가 삭제한 행사)
+- 행사 디데이는 행사 시작 일자와 동일하다. (뷰에서 현재 날짜 - 시작 일자로 행사 시작까지 며칠 남았는지 보여주도록 한다.)
+
+CREATE TABLE event
+(
+    `event_id`            INT  NOT NULL  AUTO_INCREMENT  COMMENT '행사 번호',
+    `event_user_id`       VARCHAR(20)  NOT NULL  COMMENT '행사 작성자',
+    `event_type`          VARCHAR(20)  NOT NULL  COMMENT '행사 종류',
+    `event_title`         VARCHAR(100)  NOT NULL  COMMENT '행사 제목',
+    `event_content`       VARCHAR(2500)  NOT NULL  COMMENT '행사 내용',
+    `event_created_at`    TIMESTAMP  NOT NULL  DEFAULT CURRENT_TIMESTAMP  COMMENT '행사 생성 일자',
+    `event_updated_at`    TIMESTAMP  NOT NULL  DEFAULT CURRENT_TIMESTAMP  COMMENT '행사 수정 일자',
+    `event_view`          INT  NOT NULL  DEFAULT 0  COMMENT '행사 조회수',
+    `event_organizer`     VARCHAR(50)  NOT NULL  COMMENT '행사 주최사',
+    `event_contact`       VARCHAR(50)  NOT NULL  COMMENT '행사 주최사 연락처',
+    `event_start_date`    TIMESTAMP  NOT NULL  DEFAULT CURRENT_TIMESTAMP  COMMENT '행사 기간(시작 일자)',
+    `event_end_date`      TIMESTAMP  NOT NULL  DEFAULT CURRENT_TIMESTAMP  COMMENT '행사 기간(종료 일자)',
+    `event_place`         VARCHAR(50)  NOT NULL  COMMENT '행사 장소',
+    `event_limit_number`  INT  NOT NULL  DEFAULT 0  COMMENT '행사 제한 인원',
+    `event_apply_number`  INT  NOT NULL  DEFAULT 0  COMMENT '행사 신청 인원',
+    `event_is_enabled`    TINYINT(1)  NOT NULL  DEFAULT 1  COMMENT '행사 활성(마감) 여부(0: 활성X, 1: 활성O)',
+    `event_is_deleted`    TINYINT(1)  NOT NULL  DEFAULT 0  COMMENT '행사 삭제 여부(0: 삭제X, 1: 삭제O)',
+    PRIMARY KEY (event_id),
+    FOREIGN KEY (event_user_id) REFERENCES user (user_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
++ 더미 데이터
+INSERT INTO event (event_user_id, event_type, event_title, event_content, event_organizer, event_contact, event_start_date, event_end_date, event_place, event_limit_number)
+VALUES ('admin1', '테스트', '테스트 제목', '테스트 내용', '테스트 주최자', '010-000-0000', now(), now(), '테스트 장소', 10);
+*----------------------------------------------------------------------------------------------------------------------*
+
+*----------------------------------------------------------------------------------------------------------------------*
++ 행사 신청 테이블
+- 행사 신청자를 저장하는 테이블로 접두어는 'event_apply' 를 사용한다.
+- 행사 신청은 로그인 된 사용자만 가능하도록 하므로 별도의 신청자 정보를 테이블에 저장하지 않는다.
+- 행사 신청에 대한 수정은 고려하지 않으며 신청 취소 시, 삭제되도록 한다.
+
+CREATE TABLE event_apply
+(
+    `event_apply_id`          INT  NOT NULL  AUTO_INCREMENT  COMMENT '행사 신청 번호',
+    `event_apply_event_id`    INT  NOT NULL  COMMENT '신청한 행사 번호',
+    `event_apply_user_id`     VARCHAR(20)  NULL  COMMENT '행사 신청자',
+    `event_apply_created_at`  TIMESTAMP  NOT NULL  DEFAULT CURRENT_TIMESTAMP  COMMENT '행사 신청 일자',
+    PRIMARY KEY (event_apply_id),
+    FOREIGN KEY (event_apply_event_id) REFERENCES event (event_id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (event_apply_user_id) REFERENCES user (user_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+*----------------------------------------------------------------------------------------------------------------------*
+
+
+
+
+
+
+
++ 페이징 테스트 더미 데이터
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy1', 'test123!', '20000001', '더미', 'dummy1@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy2', 'test123!', '20000002', '더미', 'dummy2@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy3', 'test123!', '20000003', '더미', 'dummy3@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy4', 'test123!', '20000004', '더미', 'dummy4@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy5', 'test123!', '20000005', '더미', 'dummy5@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy6', 'test123!', '20000006', '더미', 'dummy6@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy7', 'test123!', '20000007', '더미', 'dummy7@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy8', 'test123!', '20000008', '더미', 'dummy8@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy9', 'test123!', '20000009', '더미', 'dummy9@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy10', 'test123!', '20000010', '더미', 'dummy10@mju.ac.kr');
+
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy11', 'test123!', '20000011', '더미', 'dummy11@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy12', 'test123!', '20000012', '더미', 'dummy12@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy13', 'test123!', '20000013', '더미', 'dummy13@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy14', 'test123!', '20000014', '더미', 'dummy14@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy15', 'test123!', '20000015', '더미', 'dummy15@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy16', 'test123!', '20000016', '더미', 'dummy16@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy17', 'test123!', '20000017', '더미', 'dummy17@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy18', 'test123!', '20000018', '더미', 'dummy18@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy19', 'test123!', '20000019', '더미', 'dummy19@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy20', 'test123!', '20000020', '더미', 'dummy20@mju.ac.kr');
+
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy21', 'test123!', '20000021', '더미', 'dummy21@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy22', 'test123!', '20000022', '더미', 'dummy22@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy23', 'test123!', '20000023', '더미', 'dummy23@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy24', 'test123!', '20000024', '더미', 'dummy24@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy25', 'test123!', '20000025', '더미', 'dummy25@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy26', 'test123!', '20000026', '더미', 'dummy26@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy27', 'test123!', '20000027', '더미', 'dummy27@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy28', 'test123!', '20000028', '더미', 'dummy28@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy29', 'test123!', '20000029', '더미', 'dummy29@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy30', 'test123!', '20000030', '더미', 'dummy30@mju.ac.kr');
+
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy31', 'test123!', '20000031', '더미', 'dummy31@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy32', 'test123!', '20000032', '더미', 'dummy32@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy33', 'test123!', '20000033', '더미', 'dummy33@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy34', 'test123!', '20000034', '더미', 'dummy34@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy35', 'test123!', '20000035', '더미', 'dummy35@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy36', 'test123!', '20000036', '더미', 'dummy36@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy37', 'test123!', '20000037', '더미', 'dummy37@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy38', 'test123!', '20000038', '더미', 'dummy38@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy39', 'test123!', '20000039', '더미', 'dummy39@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy40', 'test123!', '20000040', '더미', 'dummy40@mju.ac.kr');
+
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy41', 'test123!', '20000041', '더미', 'dummy41@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy42', 'test123!', '20000042', '더미', 'dummy42@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy43', 'test123!', '20000043', '더미', 'dummy43@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy44', 'test123!', '20000044', '더미', 'dummy44@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy45', 'test123!', '20000045', '더미', 'dummy45@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy46', 'test123!', '20000046', '더미', 'dummy46@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy47', 'test123!', '20000047', '더미', 'dummy47@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy48', 'test123!', '20000048', '더미', 'dummy48@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy49', 'test123!', '20000049', '더미', 'dummy49@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy50', 'test123!', '20000050', '더미', 'dummy50@mju.ac.kr');
+
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy51', 'test123!', '20000051', '더미', 'dummy51@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy52', 'test123!', '20000052', '더미', 'dummy52@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy53', 'test123!', '20000053', '더미', 'dummy53@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy54', 'test123!', '20000054', '더미', 'dummy54@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy55', 'test123!', '20000055', '더미', 'dummy55@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy56', 'test123!', '20000056', '더미', 'dummy56@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy57', 'test123!', '20000057', '더미', 'dummy57@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy58', 'test123!', '20000058', '더미', 'dummy58@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy59', 'test123!', '20000059', '더미', 'dummy59@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy60', 'test123!', '20000060', '더미', 'dummy60@mju.ac.kr');
+
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy61', 'test123!', '20000061', '더미', 'dummy61@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy62', 'test123!', '20000062', '더미', 'dummy62@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy63', 'test123!', '20000063', '더미', 'dummy63@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy64', 'test123!', '20000064', '더미', 'dummy64@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy65', 'test123!', '20000065', '더미', 'dummy65@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy66', 'test123!', '20000066', '더미', 'dummy66@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy67', 'test123!', '20000067', '더미', 'dummy67@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy68', 'test123!', '20000068', '더미', 'dummy68@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy69', 'test123!', '20000069', '더미', 'dummy69@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy70', 'test123!', '20000070', '더미', 'dummy70@mju.ac.kr');
+
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy71', 'test123!', '20000071', '더미', 'dummy71@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy72', 'test123!', '20000072', '더미', 'dummy72@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy73', 'test123!', '20000073', '더미', 'dummy73@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy74', 'test123!', '20000074', '더미', 'dummy74@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy75', 'test123!', '20000075', '더미', 'dummy75@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy76', 'test123!', '20000076', '더미', 'dummy76@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy77', 'test123!', '20000077', '더미', 'dummy77@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy78', 'test123!', '20000078', '더미', 'dummy78@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy79', 'test123!', '20000079', '더미', 'dummy79@mju.ac.kr');
+INSERT INTO user (user_id, user_password, user_number, user_name, user_email) values ('dummy80', 'test123!', '20000080', '더미', 'dummy80@mju.ac.kr');

@@ -1,0 +1,28 @@
+#join {
+    max-width: 500px;
+    text-align: center;
+}
+
+#join h4 {
+    font-weight: 600;
+}
+
+#join a {
+    color: #000000;
+}
+
+#join a:hover {
+    font-weight: 600;
+    color: #000000;
+}
+
+/* 서버 검사 실패 색상 지정 */
+#userIdError, #userPasswordError, #userNameError, #userNumberError, #userEmailError {
+    color: #FF3636;
+}
+
+#userIdError, #userPasswordError, #userNameError, #userNumberError, #userEmailError,
+#userIdMessage, #userPasswordMessage, #userNameMessage, #userNumberMessage, #userEmailMessage {
+    text-align: center;
+    font-size: 0.8rem;
+}

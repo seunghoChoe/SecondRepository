@@ -1,0 +1,15 @@
+#postList {
+    text-align: center;
+}
+
+#postListBody .postListItem {
+    font-size: 0.9rem;
+}
+
+#postList a {
+    color: #333333;
+}
+
+#postListFooterSearch selectpicker {
+    width: 30px;
+}

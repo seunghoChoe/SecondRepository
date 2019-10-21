@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mappers.CommentMapper">
+
+    <!-- resultMap 에 id 값을 사용한다. -->
+    <resultMap id="CommentMap" type="Comment">
+        <result property="commentId" column="comment_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="commentPostId" column="comment_post_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="commentUserId" column="comment_user_id" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="commentContent" column="comment_content" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="commentCreatedAt" column="comment_created_at" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="commentUpdatedAt" column="comment_updated_at" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="commentLike" column="comment_like" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- INSERT 작업                                                                                                    INSERT 작업 -->
+    <!-- 댓글 등록 -->
+    <insert id="insertComment" parameterType="Comment">
+        INSERT
+        INTO comment (comment_post_id, comment_user_id, comment_content)
+        VALUES (#{commentPostId}, #{commentUserId}, #{commentContent})
+	</insert>
+
+
+    <!-- SELECT 작업                                                                                                    SELECT 작업 -->
+    <!-- 댓글 개수 조회 -->
+    <select id="countAllComment" parameterType="int" resultType="int">
+        SELECT COUNT(*)
+        FROM comment
+        WHERE comment_post_id = #{commentPostId}
+    </select>
+
+    <!-- 댓글 목록 조회 -->
+    <select id="selectCommentList" parameterType="int" resultMap="CommentMap">
+        SELECT *
+        FROM comment
+        WHERE comment_post_id = #{commentPostId}
+    </select>
+
+    <!-- 댓글 상세 조회 -->
+    <select id="selectComment" parameterType="int" resultMap="CommentMap">
+		SELECT *
+		FROM comment
+		WHERE comment_id = #{commentId}
+    </select>
+
+    <!-- 댓글 작성자 검사 -->
+    <select id="countCommentUserId" parameterType="map" resultType="int">
+        SELECT COUNT(*)
+        FROM comment
+        WHERE comment_id = #{commentId} AND comment_user_id = #{loggedUserId}
+    </select>
+
+
+    <!-- UPDATE 작업                                                                                                    UPDATE 작업 -->
+    <!-- 댓글 수정 (작성자를 변경하지 말 것 -> ERROR 1292 (22007)) -->
+    <update id="updateComment" parameterType="Comment">
+        UPDATE comment
+        SET comment_content = #{commentContent}, comment_updated_at = now()
+        WHERE comment_id = #{commentId} AND comment_user_id = #{commentUserId}
+    </update>
+
+
+    <!-- DELETE 작업                                                                                                    DELETE 작업 -->
+    <!-- 댓글 삭제 -->
+    <delete id="deleteComment" parameterType="Comment">
+        DELETE
+        FROM comment
+        WHERE comment_id = #{commentId} AND comment_user_id = #{commentUserId}
+    </delete>
+
+</mapper>

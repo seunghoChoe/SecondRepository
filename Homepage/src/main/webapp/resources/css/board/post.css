@@ -1,0 +1,15 @@
+#post {
+    font-size: 1.0rem;
+}
+
+#postHeader .card-body {
+    text-align: right;
+}
+
+#postFooter .btn {
+    font-size: 0.8rem;
+}
+
+#postFooter, .commentBody {
+    margin-top: 50px;
+}

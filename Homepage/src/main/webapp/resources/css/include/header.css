@@ -1,0 +1,19 @@
+.layoutHeader {
+    font-family: 'Lato', 'Noto Sans Korean', sans-serif;
+}
+
+.layoutHeader ul li a {
+    color: #000000;
+}
+
+.layoutHeader ul li a:hover {
+    font-weight: 700;
+}
+
+#headerLogo, #headerLogo a {
+    font-family: 'Noto Sans Korean', sans-serif;
+    font-weight: 600;
+    font-size: 3rem;
+    text-align: center;
+    color: #000000;
+}

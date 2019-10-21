@@ -1,0 +1,139 @@
+/* body 영역 기본 설정 */
+body {
+    font-family: 'Montserrat', 'Noto Sans Korean', sans-serif;
+}
+
+a:hover {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Custom UI Kit - Button */
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:not(:disabled):not(.disabled):active,
+.btn-secondary:not(:disabled):not(.disabled).active,
+.btn-secondary:not(:disabled):not(.disabled):active:focus,
+.btn-secondary:not(:disabled):not(.disabled).active:focus,
+.btn-secondary:active:hover, .btn-secondary.active:hover,
+.show > .btn-secondary.dropdown-toggle,
+.show > .btn-secondary.dropdown-toggle:focus,
+.show > .btn-secondary.dropdown-toggle:hover {
+    background-color: transparent;
+    color: #000000;
+    box-shadow: none;
+}
+.btn-warning {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+.btn-warning:hover,
+.btn-warning:focus,
+.btn-warning:not(:disabled):not(.disabled):active,
+.btn-warning:not(:disabled):not(.disabled).active,
+.btn-warning:not(:disabled):not(.disabled):active:focus,
+.btn-warning:not(:disabled):not(.disabled).active:focus,
+.btn-warning:active:hover,
+.btn-warning.active:hover,
+.show>.btn-warning.dropdown-toggle,
+.show>.btn-warning.dropdown-toggle:focus,
+.show>.btn-warning.dropdown-toggle:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+    box-shadow: none;
+}
+.btn-warning:hover {
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
+}
+.btn-warning.disabled,
+.btn-warning.disabled:hover,
+.btn-warning.disabled:focus,
+.btn-warning.disabled.focus,
+.btn-warning.disabled:active,
+.btn-warning.disabled.active,
+.btn-warning:disabled,
+.btn-warning:disabled:hover,
+.btn-warning:disabled:focus,
+.btn-warning:disabled.focus,
+.btn-warning:disabled:active,
+.btn-warning:disabled.active,
+.btn-warning[disabled],
+.btn-warning[disabled]:hover,
+.btn-warning[disabled]:focus,
+.btn-warning[disabled].focus,
+.btn-warning[disabled]:active,
+.btn-warning[disabled].active,
+fieldset[disabled] .btn-warning,
+fieldset[disabled] .btn-warning:hover,
+fieldset[disabled] .btn-warning:focus,
+fieldset[disabled] .btn-warning.focus,
+fieldset[disabled] .btn-warning:active,
+fieldset[disabled] .btn-warning.active {
+    background-color: #000000;
+    border-color: #000000;
+}
+.btn-warning.btn-simple {
+    color: #000000;
+    border-color: #000000;
+}
+.btn-warning.btn-simple:hover,
+.btn-warning.btn-simple:focus,
+.btn-warning.btn-simple:not(:disabled):not(.disabled):active,
+.btn-warning.btn-simple:not(:disabled):not(.disabled).active,
+.btn-warning.btn-simple:not(:disabled):not(.disabled):active:focus,
+.btn-warning.btn-simple:not(:disabled):not(.disabled).active:focus,
+.btn-warning.btn-simple:active:hover,
+.btn-warning.btn-simple.active:hover,
+.show>.btn-warning.btn-simple.dropdown-toggle,
+.show>.btn-warning.btn-simple.dropdown-toggle:focus,
+.show>.btn-warning.btn-simple.dropdown-toggle:hover {
+    background-color: transparent;
+    color: #000000;
+    border-color: #000000;
+    box-shadow: none;
+}
+.btn-warning.btn-link {
+    color: #000000;
+}
+.btn-warning.btn-link:hover,
+.btn-warning.btn-link:focus,
+.btn-warning.btn-link:not(:disabled):not(.disabled):active,
+.btn-warning.btn-link:not(:disabled):not(.disabled).active,
+.btn-warning.btn-link:not(:disabled):not(.disabled):active:focus,
+.btn-warning.btn-link:not(:disabled):not(.disabled).active:focus,
+.btn-warning.btn-link:active:hover,
+.btn-warning.btn-link.active:hover,
+.show>.btn-warning.btn-link.dropdown-toggle,
+.show>.btn-warning.btn-link.dropdown-toggle:focus,
+.show>.btn-warning.btn-link.dropdown-toggle:hover {
+    background-color: transparent;
+    color: #000000;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #FFFFFF;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    box-shadow: inset 0 0 1px white;
+    background-color: #000000;
+}
+
+/* Custom UI Kit - Input */
+.form-control:focus {
+    border: 1px solid #000000;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: 0 !important;
+    color: #2c2c2c;
+}
+.form-control:focus+.input-group-text,
+.form-control:focus~.input-group-text {
+    border: 1px solid #000000;
+    border-left: none;
+    background-color: transparent;
+}

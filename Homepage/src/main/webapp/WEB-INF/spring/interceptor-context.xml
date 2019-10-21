@@ -6,21 +6,17 @@
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- 사용자 인증에 대한 AuthenticationInterceptor 빈 등록 -->
-    <beans:bean id="authenticationInterceptor" class="com.demo.global.utils.AuthenticationInterceptor"/>
+    <beans:bean id="authenticationInterceptor" class="com.demo.utility.AuthenticationInterceptor"/>
     <!-- 사용자 권한에 대한 AuthenticationInterceptor 빈 등록 -->
-    <beans:bean id="authorizationInterceptor" class="com.demo.global.utils.AuthorizationInterceptor"/>
-    <!-- 사용자 권한에 대한 AuthorizationHelper 빈 등록 -->
-    <beans:bean id="authorizationHelper" class="com.demo.global.utils.AuthorizationHelper"/>
+    <beans:bean id="authorizationInterceptor" class="com.demo.utility.AuthorizationInterceptor"/>
 
     <mvc:interceptors>
-        <!-- 작성 순서대로 인터셉터가 실행된다. (authenticationInterceptor -> authorizationInterceptor -> ...) -->
-
-        <!-- AuthenticationInterceptor 가 적용될 URL 지정 (로그인이 필요한 URL) -->
+        <!-- 1번째 인터셉터 실행: 사용자 인증 검사 적용될 URL 지정 (로그인이 필요한 URL) -->
         <mvc:interceptor>
-            <mvc:mapping path="/board/**"/>
             <mvc:mapping path="/admin/**"/>
             <mvc:mapping path="/user/**"/>
-            <mvc:mapping path="/locker/**"/>
+            <mvc:mapping path="/board/**"/>
+            <mvc:mapping path="/event/**"/>
 
             <!-- 제외할 리소스 및 URL 목록 -->
             <mvc:exclude-mapping path="/resources/**"/>
@@ -28,12 +24,12 @@
             <beans:ref bean="authenticationInterceptor"/>
         </mvc:interceptor>
 
-        <!-- AuthorizationInterceptor 가 적용될 URL 지정 (권한이 필요한 URL) -->
+        <!-- 2번째 인터셉터 실행: 사용자 권한 검사 적용될 URL 지정 (접근 권한이 필요한 URL) -->
         <mvc:interceptor>
-            <mvc:mapping path="/board/**"/>
             <mvc:mapping path="/admin/**"/>
             <mvc:mapping path="/user/**"/>
-            <mvc:mapping path="/locker/**"/>
+            <mvc:mapping path="/board/**"/>
+            <mvc:mapping path="/event/**"/>
 
             <!-- 제외할 리소스 및 URL 목록 -->
             <mvc:exclude-mapping path="/resources/**"/>

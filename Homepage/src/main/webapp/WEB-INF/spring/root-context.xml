@@ -42,12 +42,7 @@
     <!-- 트랜잭션을 처리할 객체를 설정 -->
     <tx:annotation-driven transaction-manager="transactionManager" />
 
-    <!-- 패키지 스캔 설정 -->
-    <context:component-scan base-package="com.demo.user.dao" />
-    <context:component-scan base-package="com.demo.user.service" />
-    <context:component-scan base-package="com.demo.board.dao" />
-    <context:component-scan base-package="com.demo.board.service" />
-    <context:component-scan base-package="com.demo.locker.dao" />
-    <context:component-scan base-package="com.demo.locker.service" />
+    <!-- 패키지 스캔 설정 (개발 완료 시, 서비스와 레포지토리 클래스만 스캔하도록 변경한다.) -->
+    <context:component-scan base-package="com.demo.*"/>
 
 </beans>

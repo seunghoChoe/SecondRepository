@@ -1,0 +1,17 @@
+#security {
+    max-width: 500px;
+    text-align: center;
+}
+
+#security h4 {
+    font-weight: 600;
+}
+
+#security a {
+    color: #000000;
+}
+
+#security a:hover {
+    font-weight: 600;
+    color: #000000;
+}

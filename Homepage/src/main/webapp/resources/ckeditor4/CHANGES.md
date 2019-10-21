@@ -65,7 +65,7 @@ Other Changes:
 
 * Updated the [WebSpellChecker](https://ckeditor.com/cke4/addon/wsc) (WSC) plugin:
 	* [#52](https://github.com/WebSpellChecker/ckeditor-plugin-wsc/issues/52) Fixed: Clicking "Finish Checking" without a prior action would hang the Spell Checking dialog.
-* [#2603](https://github.com/ckeditor/ckeditor-dev/issues/2603): Corrected the GPL license entry in the `package.json` file.
+* [#2603](https://github.com/ckeditor/ckeditor-dev/issues/2603): Corrected the GPL license entry in the `package.json` uploadFile.
 
 ## CKEditor 4.11.1
 
@@ -148,7 +148,7 @@ Fixed Issues:
 * [#1084](https://github.com/ckeditor/ckeditor-dev/issues/1084) Fixed: Using the "Automatic" option with [Color Button](https://ckeditor.com/cke4/addon/colorbutton) on a text with the color already defined sets an invalid color value.
 * [#2271](https://github.com/ckeditor/ckeditor-dev/issues/2271): Fixed: Custom color name not used as a label in the [Color Button](https://ckeditor.com/cke4/addon/image2) plugin. Thanks to [Eric Geloen](https://github.com/egeloen)!
 * [#2296](https://github.com/ckeditor/ckeditor-dev/issues/2296): Fixed: The [Color Button](https://ckeditor.com/cke4/addon/colorbutton) plugin throws an error when activated on content containing HTML comments.
-* [#966](https://github.com/ckeditor/ckeditor-dev/issues/966): Fixed: Executing [`editor.destroy()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html#method-destroy) during the [file upload](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_fileTools_uploadWidgetDefinition.html#property-onUploading) throws an error. Thanks to [Maksim Makarevich](https://github.com/MaksimMakarevich)!
+* [#966](https://github.com/ckeditor/ckeditor-dev/issues/966): Fixed: Executing [`editor.destroy()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html#method-destroy) during the [uploadFile upload](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_fileTools_uploadWidgetDefinition.html#property-onUploading) throws an error. Thanks to [Maksim Makarevich](https://github.com/MaksimMakarevich)!
 * [#1719](https://github.com/ckeditor/ckeditor-dev/issues/1719): Fixed: <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>A</kbd> inadvertently focuses inline editor if it is starting and ending with a list. Thanks to [theNailz](https://github.com/theNailz)!
 * [#1046](https://github.com/ckeditor/ckeditor-dev/issues/1046): Fixed: Subsequent new links do not include the `id` attribute. Thanks to [Nathan Samson](https://github.com/nathansamson)!
 * [#1348](https://github.com/ckeditor/ckeditor-dev/issues/1348): Fixed: [Enhanced Image](https://ckeditor.com/cke4/addon/image2) plugin aspect ratio locking uses an old width and height on image URL change.
@@ -534,10 +534,10 @@ New Features:
 * Added new translation: Occitan. Thanks to [Cédric Valmary](https://totenoc.eu/)!
 * [#10015](https://dev.ckeditor.com/ticket/10015): Keyboard shortcuts (relevant to the operating system in use) will now be displayed in tooltips and context menus.
 * [#13794](https://dev.ckeditor.com/ticket/13794): The [Upload Image](https://ckeditor.com/cke4/addon/uploadimage) feature now uses `uploaded.width/height` if set.
-* [#12541](https://dev.ckeditor.com/ticket/12541): Added the [Upload File](https://ckeditor.com/cke4/addon/uploadfile) plugin that lets you upload a file by drag&amp;dropping it into the editor content.
+* [#12541](https://dev.ckeditor.com/ticket/12541): Added the [Upload File](https://ckeditor.com/cke4/addon/uploadfile) plugin that lets you upload a uploadFile by drag&amp;dropping it into the editor content.
 * [#14449](https://dev.ckeditor.com/ticket/14449): Introduced the [Balloon Panel](https://ckeditor.com/cke4/addon/balloonpanel) plugin that lets you create stylish floating UI elements for the editor.
-* [#12077](https://dev.ckeditor.com/ticket/12077): Added support for the HTML5 `download` attribute in link (`<a>`) elements. Selecting the "Force Download" checkbox in the [Link](https://ckeditor.com/cke4/addon/link) dialog will cause the linked file to be downloaded automatically. Thanks to [sbusse](https://github.com/sbusse)!
-* [#13518](https://dev.ckeditor.com/ticket/13518): Introduced the [`additionalRequestParameters`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_fileTools_uploadWidgetDefinition.html#property-additionalRequestParameters) property for file uploads to make it possible to send additional information about the uploaded file to the server.
+* [#12077](https://dev.ckeditor.com/ticket/12077): Added support for the HTML5 `download` attribute in link (`<a>`) elements. Selecting the "Force Download" checkbox in the [Link](https://ckeditor.com/cke4/addon/link) dialog will cause the linked uploadFile to be downloaded automatically. Thanks to [sbusse](https://github.com/sbusse)!
+* [#13518](https://dev.ckeditor.com/ticket/13518): Introduced the [`additionalRequestParameters`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_fileTools_uploadWidgetDefinition.html#property-additionalRequestParameters) property for uploadFile uploads to make it possible to send additional information about the uploaded uploadFile to the server.
 * [#14889](https://dev.ckeditor.com/ticket/14889): Added the [`config.image2_altRequired`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-image2_altRequired) option for the [Enhanced Image](https://ckeditor.com/cke4/addon/image2) plugin to allow making alternative text a mandatory field. Thanks to [Andrey Fedoseev](https://github.com/andreyfedoseev)!
 
 Fixed Issues:
@@ -607,7 +607,7 @@ Fixed Issues:
 * [#13362](https://dev.ckeditor.com/ticket/13362): [Blink, WebKit] Fixed: Active widget element is not cached when it is losing focus and it is inside an editable element.
 * [#13755](https://dev.ckeditor.com/ticket/13755): [Edge] Fixed: Pasting images does not work.
 * [#13548](https://dev.ckeditor.com/ticket/13548): [IE] Fixed: Clicking the [elements path](https://ckeditor.com/cke4/addon/elementspath) disables Cut and Copy icons.
-* [#13812](https://dev.ckeditor.com/ticket/13812): Fixed: When aborting file upload the placeholder for image is left.
+* [#13812](https://dev.ckeditor.com/ticket/13812): Fixed: When aborting uploadFile upload the placeholder for image is left.
 * [#14659](https://dev.ckeditor.com/ticket/14659): [Blink] Fixed: Content scrolled to the top after closing the dialog in a [`<div>`-based editor](https://ckeditor.com/cke4/addon/divarea).
 * [#14825](https://dev.ckeditor.com/ticket/14825): [Edge] Fixed: Focusing the editor causes unwanted scrolling due to dropped support for the `setActive()` method.
 
@@ -672,7 +672,7 @@ Fixed Issues:
 New Features:
 
 * Introduced the [`CKEDITOR.tools.getCookie()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_tools.html#method-getCookie) and [`CKEDITOR.tools.setCookie()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_tools.html#method-setCookie) methods for accessing cookies.
-* Introduced the [`CKEDITOR.tools.getCsrfToken()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_tools.html#method-getCsrfToken) method. The CSRF token is now automatically sent by the [File Browser](https://ckeditor.com/cke4/addon/filebrowser) and [File Tools](https://ckeditor.com/cke4/addon/filetools) plugins during file uploads. The server-side upload handlers may check it and use it to additionally secure the communication.
+* Introduced the [`CKEDITOR.tools.getCsrfToken()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_tools.html#method-getCsrfToken) method. The CSRF token is now automatically sent by the [File Browser](https://ckeditor.com/cke4/addon/filebrowser) and [File Tools](https://ckeditor.com/cke4/addon/filetools) plugins during uploadFile uploads. The server-side upload handlers may check it and use it to additionally secure the communication.
 
 Other Changes:
 
@@ -748,7 +748,7 @@ Other Changes:
 
 New Features:
 
-* [#13501](https://dev.ckeditor.com/ticket/13501): Added the [`config.fileTools_defaultFileName`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-fileTools_defaultFileName) option to allow setting a default file name for paste uploads.
+* [#13501](https://dev.ckeditor.com/ticket/13501): Added the [`config.fileTools_defaultFileName`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-fileTools_defaultFileName) option to allow setting a default uploadFile name for paste uploads.
 * [#13603](https://dev.ckeditor.com/ticket/13603): Added support for uploading dropped BMP images.
 
 Fixed Issues:
@@ -838,7 +838,7 @@ Fixed Issues:
 * [#13186](https://dev.ckeditor.com/ticket/13186): Fixed: Content dropped into a nested editable is not filtered by [Advanced Content Filter](https://ckeditor.com/docs/ckeditor4/latest/guide/dev_acf.html).
 * [#13140](https://dev.ckeditor.com/ticket/13140): Fixed: Error thrown when dropping a block widget right after itself.
 * [#13176](https://dev.ckeditor.com/ticket/13176): [IE8] Fixed: Errors on drag&drop of embed widgets.
-* [#13015](https://dev.ckeditor.com/ticket/13015): Fixed: Dropping an image file on [Enhanced Image](https://ckeditor.com/cke4/addon/image2) causes a page reload.
+* [#13015](https://dev.ckeditor.com/ticket/13015): Fixed: Dropping an image uploadFile on [Enhanced Image](https://ckeditor.com/cke4/addon/image2) causes a page reload.
 * [#13080](https://dev.ckeditor.com/ticket/13080): Fixed: Ugly notification shown when the response contains HTML content.
 * [#13011](https://dev.ckeditor.com/ticket/13011): [IE8] Fixed: Anchors are duplicated on drag&drop in specific locations.
 * [#13105](https://dev.ckeditor.com/ticket/13105): Fixed: Various issues related to [`CKEDITOR.tools.htmlEncode()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_tools.html#method-htmlEncode) and [`CKEDITOR.tools.htmlDecode()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_tools.html#method-htmlDecode) methods.
@@ -869,12 +869,12 @@ Other Changes:
 
 New Features:
 
-* Clipboard (copy&paste, drag&drop) and file uploading features and improvements ([#11437](https://dev.ckeditor.com/ticket/11437)).
+* Clipboard (copy&paste, drag&drop) and uploadFile uploading features and improvements ([#11437](https://dev.ckeditor.com/ticket/11437)).
 
   * Major features:
     * Support for dropping and pasting files into the editor was introduced. Through a set of new facades for native APIs it is now possible to easily intercept and process inserted files.
     * [File upload tools](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR.fileTools.html) were introduced in order to simplify controlling the loading, uploading and handling server response, properly handle [new upload configuration](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-uploadUrl) options, etc.
-    * [Upload Image](https://ckeditor.com/cke4/addon/uploadimage) widget was introduced to upload dropped images. A base class for the [upload widget](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR.fileTools.uploadWidgetDefinition.html) was exposed, too, to make it simple to create new types of upload widgets which can handle any type of dropped file, show the upload progress and update the content when the process is done. It also handles editing and undo/redo operations when a file is being uploaded and integrates with the [notification aggregator](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR.plugins.notificationAggregator.html) to show progress and success or error.
+    * [Upload Image](https://ckeditor.com/cke4/addon/uploadimage) widget was introduced to upload dropped images. A base class for the [upload widget](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR.fileTools.uploadWidgetDefinition.html) was exposed, too, to make it simple to create new types of upload widgets which can handle any type of dropped uploadFile, show the upload progress and update the content when the process is done. It also handles editing and undo/redo operations when a uploadFile is being uploaded and integrates with the [notification aggregator](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR.plugins.notificationAggregator.html) to show progress and success or error.
     * All drag and drop operations were integrated with the editor. All dropped content is passed through the [`editor#paste`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html#event-paste) event and a set of new editor events was introduced &mdash; [`dragstart`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html#event-dragstart), [`drop`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html#event-drop), [`dragend`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html#event-dragend).
     * The [Data Transfer](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR.plugins.clipboard.dataTransfer.html) facade was introduced to unify access to data in various types and files. [Data Transfer](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR.plugins.clipboard.dataTransfer.html) is now always available in the [`editor#paste`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_editor.html#event-paste) event.
     * Switched from the pastebin to using the native clipboard access whenever possible. This solved many issues related to pastebin such as unnecessary scrolling or data loss. Additionally, on copy and cut from the editor the clipboard data is set. Therefore, on paste the editor has access to clean data, undisturbed by the browsers.
@@ -893,7 +893,7 @@ New Features:
     * [#12914](https://dev.ckeditor.com/ticket/12914): Fixed: Copy/Paste of table broken in `div`-based editor.
 
   * Browser support.<br>Browser support for related features varies significantly (see http://caniuse.com/clipboard).
-    * File APIs needed to operate and file upload is not supported in Internet Explorer 9 and below.
+    * File APIs needed to operate and uploadFile upload is not supported in Internet Explorer 9 and below.
     * Only Chrome and Safari on Mac OS support setting custom data items in the clipboard, so currently it is possible to recognize the origin of the copied content in these browsers only. All drag and drop operations can be identified thanks to the new Data Transfer facade.
     * No Internet Explorer browser supports the standard clipboard API which results in small glitches like where only plain text can be dropped from outside the editor. Thanks to the new Data Transfer facade, internal and cross-editor drag and drop supports the full range of data.
     * Direct access to clipboard could only be implemented in Chrome, Safari on Mac OS, Opera and Firefox. In other browsers the pastebin must still be used.
@@ -1348,7 +1348,7 @@ Fixed Issues:
 * [#11198](https://dev.ckeditor.com/ticket/11198): Widgets: Drag handler is not fully visible when an inline widget is in a heading.
 * [#11132](https://dev.ckeditor.com/ticket/11132): [Firefox] Fixed: Caret is lost after drag and drop of an inline widget.
 * [#11182](https://dev.ckeditor.com/ticket/11182): [IE10-11] Fixed: Editor crashes (IE11) or works with minor issues (IE10) if a page is loaded in Quirks Mode. See [`env.quirks`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_env.html#property-quirks) for more details.
-* [#11204](https://dev.ckeditor.com/ticket/11204): Added `figure` and `figcaption` styles to the `contents.css` file so [Enhanced Image](https://ckeditor.com/cke4/addon/image2) looks nicer.
+* [#11204](https://dev.ckeditor.com/ticket/11204): Added `figure` and `figcaption` styles to the `contents.css` uploadFile so [Enhanced Image](https://ckeditor.com/cke4/addon/image2) looks nicer.
 * [#11202](https://dev.ckeditor.com/ticket/11202): Fixed: No newline in [BBCode](https://ckeditor.com/cke4/addon/bbcode) mode.
 * [#10890](https://dev.ckeditor.com/ticket/10890): Fixed: Error thrown when pressing the *Delete* key in a list item.
 * [#10055](https://dev.ckeditor.com/ticket/10055): [IE8-10] Fixed: *Delete* pressed on a selected image causes the browser to go back.
@@ -1371,7 +1371,7 @@ New Features:
 * [#10886](https://dev.ckeditor.com/ticket/10886): Widgets: Added tooltip to the drag handle.
 * [#10933](https://dev.ckeditor.com/ticket/10933): Widgets: Introduced drag and drop of block widgets with the [Line Utilities](https://ckeditor.com/cke4/addon/lineutils) plugin.
 * [#10936](https://dev.ckeditor.com/ticket/10936): Widget System changes for easier integration with other dialog systems.
-* [#10895](https://dev.ckeditor.com/ticket/10895): [Enhanced Image](https://ckeditor.com/cke4/addon/image2): Added file browser integration.
+* [#10895](https://dev.ckeditor.com/ticket/10895): [Enhanced Image](https://ckeditor.com/cke4/addon/image2): Added uploadFile browser integration.
 * [#11002](https://dev.ckeditor.com/ticket/11002): Added the [`draggable`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_plugins_widget_definition.html#property-draggable) option to disable drag and drop support for widgets.
 * [#10937](https://dev.ckeditor.com/ticket/10937): [Mathematical Formulas](https://ckeditor.com/cke4/addon/mathjax) widget improvements:
   * loading indicator ([#10948](https://dev.ckeditor.com/ticket/10948)),
@@ -1446,7 +1446,7 @@ New Features:
 
 Fixed Issues:
 
-* [#10994](https://dev.ckeditor.com/ticket/10994): Fixed: Loading external jQuery library when opening the [jQuery Adapter](https://ckeditor.com/docs/ckeditor4/latest/guide/dev_jquery.html) sample directly from file.
+* [#10994](https://dev.ckeditor.com/ticket/10994): Fixed: Loading external jQuery library when opening the [jQuery Adapter](https://ckeditor.com/docs/ckeditor4/latest/guide/dev_jquery.html) sample directly from uploadFile.
 * [#10975](https://dev.ckeditor.com/ticket/10975): [IE] Fixed: Error thrown while opening the color palette.
 * [#9929](https://dev.ckeditor.com/ticket/9929): [Blink/WebKit] Fixed: A non-breaking space is created once a character is deleted and a regular space is typed.
 * [#10963](https://dev.ckeditor.com/ticket/10963): Fixed: JAWS issue with the keyboard shortcut for [Magic Line](https://ckeditor.com/cke4/addon/magicline).
@@ -1460,7 +1460,7 @@ Fixed Issues:
 * [#10308](https://dev.ckeditor.com/ticket/10308): [IE10] Fixed: Unspecified error when deleting a row.
 * [#10945](https://dev.ckeditor.com/ticket/10945): [Chrome] Fixed: Clicking with a mouse inside the editor does not show the caret.
 * [#10912](https://dev.ckeditor.com/ticket/10912): Prevent default action when content of a non-editable link is clicked.
-* [#10913](https://dev.ckeditor.com/ticket/10913): Fixed [`CKEDITOR.plugins.addExternal()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_resourceManager.html#method-addExternal) not handling paths including file name specified.
+* [#10913](https://dev.ckeditor.com/ticket/10913): Fixed [`CKEDITOR.plugins.addExternal()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_resourceManager.html#method-addExternal) not handling paths including uploadFile name specified.
 * [#10666](https://dev.ckeditor.com/ticket/10666): Fixed [`CKEDITOR.tools.isArray()`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_tools.html#method-isArray) not working cross frame.
 * [#10910](https://dev.ckeditor.com/ticket/10910): [IE9] Fixed JavaScript error thrown in Compatibility Mode when clicking and/or typing in the editing area.
 * [#10868](https://dev.ckeditor.com/ticket/10868): [IE8] Prevent the browser from crashing when applying the Inline Quotation style.
@@ -1477,7 +1477,7 @@ Fixed Issues:
 
 * [#10301](https://dev.ckeditor.com/ticket/10301): [IE9-10] Undo fails after 3+ consecutive paste actions with a JavaScript error.
 * [#10689](https://dev.ckeditor.com/ticket/10689): Save toolbar button saves only the first editor instance.
-* [#10368](https://dev.ckeditor.com/ticket/10368): Move language reading direction definition (`dir`) from main language file to core.
+* [#10368](https://dev.ckeditor.com/ticket/10368): Move language reading direction definition (`dir`) from main language uploadFile to core.
 * [#9330](https://dev.ckeditor.com/ticket/9330): Fixed pasting anchors from MS Word.
 * [#8103](https://dev.ckeditor.com/ticket/8103): Fixed pasting nested lists from MS Word.
 * [#9958](https://dev.ckeditor.com/ticket/9958): [IE9] Pressing the "OK" button will trigger the `onbeforeunload` event in the popup dialog.

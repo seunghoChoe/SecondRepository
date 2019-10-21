@@ -4,20 +4,18 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-
+	<!-- parameterType 에 alias 값을 사용한다. -->
 	<typeAliases>
-
-		<!-- 사용자 관련 -->
-		<typeAlias type="com.demo.user.dto.UserDTO" alias="UserDTO"/>
-		<typeAlias type="com.demo.user.dto.LoginDTO" alias="LoginDTO"/>
-
+		<!-- 페이징 -->
+		<typeAlias type="com.demo.model.Criteria" alias="Criteria"/>
+		<!-- 계정 관련 -->
+		<typeAlias type="com.demo.model.User" alias="User"/>
 		<!-- 게시판 관련 -->
-		<typeAlias type="com.demo.board.dto.BoardDTO" alias="BoardDTO"/>
-		<typeAlias type="com.demo.board.dto.CommentDTO" alias="CommentDTO"/>
-
-		<!-- 사물함 관련 -->
-		<typeAlias type="com.demo.locker.dto.LockerDTO" alias="LockerDTO"/>
-
+		<typeAlias type="com.demo.model.Post" alias="Post"/>
+		<typeAlias type="com.demo.model.PostLike" alias="PostLike"/>
+		<typeAlias type="com.demo.model.Comment" alias="Comment"/>
+		<!-- 행사 관련 -->
+		<typeAlias type="com.demo.model.Event" alias="Event"/>
+		<typeAlias type="com.demo.model.EventApply" alias="EventApply"/>
 	</typeAliases>
-	
 </configuration>

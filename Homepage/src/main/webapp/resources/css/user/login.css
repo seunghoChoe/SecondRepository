@@ -1,0 +1,17 @@
+#login {
+    max-width: 500px;
+    text-align: center;
+}
+
+#login h4 {
+    font-weight: 600;
+}
+
+#login a {
+    color: #000000;
+}
+
+#login a:hover {
+    font-weight: 600;
+    color: #000000;
+}

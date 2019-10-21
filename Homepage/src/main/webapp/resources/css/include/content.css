@@ -1,0 +1,10 @@
+.layoutContent {
+    font-family: 'Montserrat', 'Noto Sans Korean', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    margin-top: 50px;
+}
+
+.layoutContent p, .layoutContent a {
+    font-size: 0.9rem;
+}

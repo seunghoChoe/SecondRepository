@@ -1,0 +1,11 @@
+#userList {
+    text-align: center;
+}
+
+#userListBody .userListItem {
+    font-size: 0.9rem;
+}
+
+#userList a {
+    color: #333333;
+}

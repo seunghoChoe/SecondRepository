@@ -5,114 +5,137 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="mappers.UserMapper">
 
-	<resultMap type="UserDTO" id="UserDTO">
-		<result property="userId" column="u_id" javaType="java.lang.String" jdbcType="VARCHAR"/>
-		<result property="userPw" column="u_pw" javaType="java.lang.String" jdbcType="VARCHAR"/>
-		<result property="userSno" column="u_sno" javaType="java.lang.String" jdbcType="VARCHAR"/>
-		<result property="userName" column="u_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
-		<result property="userEmail" column="u_email" javaType="java.lang.String" jdbcType="VARCHAR"/>
-		<result property="userRegDate" column="u_reg_date" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
-		<result property="userLogDate" column="u_log_date" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
-		<result property="userEnabled" column="u_enabled" javaType="java.lang.Integer" jdbcType="TINYINT"/>
-		<result property="userAuthority" column="u_authority" javaType="java.lang.String" jdbcType="VARCHAR"/>
+	<!-- resultMap 에 id 값을 사용한다. -->
+	<resultMap id="UserMap" type="User">
+		<result property="userId" column="user_id" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result property="userPassword" column="user_password" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result property="userNumber" column="user_number" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result property="userName" column="user_name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result property="userEmail" column="user_email" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result property="userRole" column="user_role" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result property="userCreatedAt" column="user_created_at" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+		<result property="userUpdatedAt" column="user_updated_at" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+		<result property="userIsEnabled" column="user_is_enabled" javaType="java.lang.Boolean" jdbcType="TINYINT"/>
+		<result property="userIsDeleted" column="user_is_deleted" javaType="java.lang.Boolean" jdbcType="TINYINT"/>
 	</resultMap>
 
-	<!-- ID 중복 체크 -->
-	<select id="selectUserId" parameterType="String" resultType="int">
-	<![CDATA[
-		SELECT COUNT(*)
-		FROM users
-		WHERE u_id = #{userId}
-	]]>
-    </select>
-
-	<!-- 학번 중복 체크 -->
-	<select id="selectUserSno" parameterType="String" resultType="int">
-	<![CDATA[
-		SELECT COUNT(*)
-		FROM users
-		WHERE u_sno = #{userSno}
-	]]>
-    </select>
-
-	<!-- 이메일 중복 체크 -->
-	<select id="selectUserEmail" parameterType="String" resultType="int">
-	<![CDATA[
-		SELECT COUNT(*)
-		FROM users
-		WHERE u_email = #{userEmail}
-	]]>
-    </select>
-
-	<!-- 회원가입 (다중쿼리 시, JDBC 연결 URL 에 'allowMultiQueries = true' 설정 / Mapper 쿼리문에서 세미콜론 필수 -->
-	<insert id="join" parameterType="UserDTO">
-	<![CDATA[
+	<!-- INSERT 작업                                                                                                    INSERT 작업 -->
+	<!-- 계정 등록 -->
+	<insert id="insertUser" parameterType="User">
 		INSERT
-		INTO users (u_id, u_pw, u_sno, u_name, u_email)
-		VALUES (#{userId}, #{userPw}, #{userSno}, #{userName}, #{userEmail});
-	]]>
+		INTO user (user_id, user_password, user_number, user_name, user_email)
+		VALUES (#{userId}, #{userPassword}, #{userNumber}, #{userName}, #{userEmail})
 	</insert>
 
-	<!-- 로그인 -->
-	<select id="login" parameterType="LoginDTO" resultMap="UserDTO">
-	<![CDATA[
-		SELECT *
-		FROM users
-		WHERE u_id = #{userId} AND users.u_pw = #{userPw}
-	]]>
-    </select>
-    
-    <!-- 회원정보 수정  -->
-    <update id="modify" parameterType="UserDTO" >
-	<![CDATA[
-		UPDATE users
-		SET u_name = #{userName}, u_sno = #{userSno}, u_email = #{userEmail}
-		WHERE users.u_id = #{userId}
-	]]>
-    </update>
-    
-    <!-- 비밀번호 수정  -->
-    <update id="modifySecurity" parameterType="UserDTO" >
-	<![CDATA[
-		UPDATE users
-		SET u_pw = #{userPw}
-		WHERE users.u_id = #{userId}
-	]]>
-    </update>
 
-	<!-- 전체 계정 목록 조회 -->
-	<select id="selectUserList" resultMap="UserDTO">
-	<![CDATA[
+	<!-- SELECT 작업                                                                                                    SELECT 작업 -->
+	<!-- 전체 계정 개수 조회 -->
+	<select id="countAllUser" parameterType="string" resultType="int">
+        SELECT COUNT(*)
+        FROM user
+    </select>
+
+	<!-- 계정 목록 조회 -->
+	<select id="selectUserList" parameterType="int" resultMap="UserMap">
 		SELECT *
-		FROM users
-	]]>
+        FROM user
+        ORDER BY user_created_at DESC
+        LIMIT #{pageStart}, #{perPageNum}
 	</select>
 
-	<!-- ID 로 계정 조회-->
-	<select id="selectUserById" parameterType="String" resultMap="UserDTO">
-	<![CDATA[
+	<!-- 로그인 및 계정 상세 조회 -->
+	<select id="selectUser" parameterType="map" resultMap="UserMap">
 		SELECT *
-		FROM users
-		WHERE u_id = #{userId}
-	]]>
+		FROM user
+		<choose>
+			<when test="isLogin == true">WHERE user_id = #{user.userId} AND user_password = #{user.userPassword}</when>
+			<otherwise>WHERE user_id = #{user.userId}</otherwise>
+		</choose>
     </select>
 
-	<!-- 계정 활성화/비활성화 -->
-	<update id="updateUserEnabled" parameterType="map">
-	<![CDATA[
-		UPDATE users
-		SET u_enabled = #{userEnabled}
-		WHERE u_id = #{userId}
-	]]>
+	<!-- ID 중복 검사 -->
+	<select id="countUserByUserId" parameterType="string" resultType="int">
+		SELECT COUNT(*)
+		FROM user
+		WHERE user_id = #{userId}
+    </select>
+
+	<!-- 학번 중복 검사 -->
+	<select id="countUserByUserNumber" parameterType="string" resultType="int">
+		SELECT COUNT(*)
+		FROM user
+		WHERE user_number = #{userNumber}
+    </select>
+
+	<!-- 이메일 중복 검사 -->
+	<select id="countUserByUserEmail" parameterType="string" resultType="int">
+		SELECT COUNT(*)
+		FROM user
+		WHERE user_email = #{userEmail}
+    </select>
+
+
+	<!-- UPDATE 작업                                                                                                    UPDATE 작업 -->
+	<!-- 로그인 일자 수정 -->
+	<update id="updateUserUpdatedAt" parameterType="string">
+		UPDATE user
+		SET user_updated_at = now()
+		WHERE user_id = #{userId}
+    </update>
+
+	<!-- 계정 정보 수정 -->
+	<update id="updateUser" parameterType="User">
+		UPDATE user
+		SET user_name = #{userName}, user_number = #{userNumber}, user_email = #{userEmail}
+		WHERE user_id = #{userId}
+    </update>
+
+	<!-- 이름 수정 -->
+	<update id="updateUserName" parameterType="User">
+		UPDATE user
+		SET user_name = #{userName}
+		WHERE user_id = #{userId}
+    </update>
+
+	<!-- 학번 수정 -->
+	<update id="updateUserNumber" parameterType="User">
+		UPDATE user
+		SET user_number = #{userNumber}
+		WHERE user_id = #{userId}
+    </update>
+
+	<!-- 이메일 수정 -->
+	<update id="updateUserEmail" parameterType="User">
+		UPDATE user
+		SET user_email = #{userEmail}
+		WHERE user_id = #{userId}
+    </update>
+
+	<!-- 비밀번호 수정 -->
+	<update id="updateUserPassword" parameterType="User">
+		UPDATE user
+		SET user_password = #{userPassword}
+		WHERE user_id = #{userId}
+    </update>
+
+	<!-- 계정 활성 수정 -->
+	<update id="updateUserIsEnabled" parameterType="User">
+		UPDATE user
+		SET user_is_enabled = #{userIsEnabled}
+		WHERE user_id = #{userId}
 	</update>
 
-	<!-- 계정 삭제 -->
-	<delete id="deleteUser" parameterType="String">
-	<![CDATA[
-		DELETE
-		FROM users
-		WHERE u_id = #{userId}
-	]]>
-	</delete>
-    
+	<!-- 계정 삭제 수정 -->
+	<update id="updateUserIsDeleted" parameterType="map">
+		UPDATE user
+		SET user_is_deleted = #{user.userIsDeleted}
+		<choose>
+			<when test="isAdmin == true">WHERE user_id = #{user.userId}</when>
+			<otherwise>WHERE user_id = #{user.userId} AND user_password = #{user.userPassword}</otherwise>
+		</choose>
+	</update>
+
+
+	<!-- DELETE 작업                                                                                                    DELETE 작업 -->
+
 </mapper>
