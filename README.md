@@ -8,7 +8,7 @@
 <img width="650" alt="스크린샷 2019-10-21 오후 5 49 19" src="https://user-images.githubusercontent.com/55579896/67191464-9a8a3d00-f42c-11e9-94aa-8abbabea8a5a.png">
 <div>
   
-
+- - -
 
 
 ## Homepage
@@ -17,11 +17,15 @@
 ### 아키텍처
 <img width="1000" alt="스크린샷 2019-10-21 오후 6 15 02" src="https://user-images.githubusercontent.com/55579896/67193190-dc68b280-f42f-11e9-8685-cab12ac996fd.png">
 
+- - -
+
 ## LMS
 - 17.9 ~ 17.12 개인프로젝트, 수강신청시스템,
 - JAVA SWING
 ### 아키텍처
 <img width="1100" alt="스크린샷 2019-10-21 오후 6 54 13" src="https://user-images.githubusercontent.com/55579896/67195624-3c615800-f434-11e9-96e5-66062833e9c0.png">
+
+- - -
 
 ## WebEditor-SpringBoot-Design
 - 19.8 ~ 중단 개인프로젝트, 웹기반 메모장,
