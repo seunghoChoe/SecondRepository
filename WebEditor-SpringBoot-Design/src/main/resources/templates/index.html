@@ -23,25 +23,25 @@
 </style>
 </head>
 <body style="padding:0;">
-	<div style="border:1px solid black;width:100%;padding:5px">
-		<table style="border:2px solid gray; width:100%; padding:0px;border-collapse:collapse;">
+	<div style="width:100%;">
+		<table style="border:2px solid gray; width:90%; margin:20px auto; padding:0px;border-collapse:collapse;">
 			<tr style="padding:0px;">
 				<td id="navagationCell" style="">
 				
 					<!-- 노트북 목록 상단 -->
-					<div style="height:100px; border:1px solid black;" >
-						<div style="border:1px solid black;margin-top:15px;" onclick="createNoteBook()">
+					<div style="height:100px;" >
+						<div style="margin-top:15px;" onclick="createNoteBook()">
 							<i class="fas fa-plus-square" style="font-size:2em;color:#79D681;margin-left:5px;vertical-align:-15%;"></i>
 							새노트북 만들기
 						</div>
-						<div style="border:1px solid black;" onclick="callCreater()">
+						<div style="" onclick="callCreater()">
 							<i class="fas fa-plus-square" style="font-size:2em;color:#79D681;margin-left:5px;vertical-align:-15%;"></i>
 							새노트 쓰기
 						</div>
 					</div>	
 					
 					<!-- 노트북 목록 -->
-			 		<ul style="overflow:scroll;border:1px solid red; margin:0px;height:600px;">
+			 		<ul style="overflow:scroll; margin:0px;height:600px;">
 			 		 	<li onclick="window.location='/'">전체보기입니다</li>
 						<li th:each="book : ${session.books}" th:object="${book}" th:attr="data-bookIndex=*{bookIndex}"
 							th:onclick="|javascript:selectBook(this.getAttribute('data-bookIndex'))|" th:text="*{bookName}">123</li>
@@ -49,11 +49,11 @@
 				</td>
 				
 				
-				<td style="width:28%; border:1px solid black; margin:0px; padding:5px; vertical-align:top; background-color:#EBF1EC;">
+				<td style="width:28%; margin:0px; padding:5px; border : 2px solid gray; vertical-align:top; background-color:#EBF1EC;">
 					<!-- 노트 목록 상단 -->
-					<div style="height:100px; border:1px solid black; border-bottom:2px solid #A4A4A4; padding:0px;">
+					<div style="height:100px;  border-bottom:2px solid #A4A4A4; padding:0px;">
 						<h3 th:text="${session.selectedBook.bookName}" style="margin-left:15px;"></h3>
-						<div style="border:1px solid black;height:40px;text-align:right;padding-right:10px;">
+						<div style="height:40px;text-align:right;padding-right:10px;">
 							<span style="background-color:green"  th:attr="data-bookName=${session.selectedBook.bookName}" 
 							th:onclick="|javascript:deleteNoteBook(this.getAttribute('data-bookName'),${session.selectedBook.bookIndex})|">노트북 삭제</span>
 							<i class="fas fa-align-center"></i>
@@ -63,7 +63,7 @@
 					</div>	
 					
 					<!-- 노트 카드 목록   -->
-					<div style="overflow:scroll;border:1px solid red; height:600px;line-height:0.8;">
+					<div style="overflow:scroll; height:600px;line-height:0.8;">
 						<div style="border-bottom:2px solid #A4A4A4;list-style:none;padding-left:15px;" th:each="note : ${notes}" th:object="${note}" th:attr="data-textIndex=*{textIndex}"
 							th:onclick="|javascript:selectNote(this.getAttribute('data-textIndex'))|">
 							<h3 th:text="*{textTitle}"></h3>
@@ -74,13 +74,13 @@
 				</td>
 				
 				
-				<td style="width:52%; border:1px solid black; margin:0px; padding:5px;">
+				<td style="width:52%; margin:0px; padding:5px;">
 					<!-- 노트 편집기 화면 -->
-					<div th:if="${editorState == 0}" style="border: 1px solid red"></div>
-					<div th:if="${editorState == 1}" th:include="Updater :: updater" style="border: 1px solid red" th:object="${selectedNote}">
+					<div th:if="${editorState == 0}" style=""></div>
+					<div th:if="${editorState == 1}" th:include="Updater :: updater" style="" th:object="${selectedNote}">
 						<h1>editor-include</h1>
 					</div>
-					<div th:if="${editorState == 2}" th:include="Creater :: creater" style="border: 1px solid red"></div>
+					<div th:if="${editorState == 2}" th:include="Creater :: creater" style=""></div>
 				</td>
 			</tr>
 		</table>
