@@ -38,4 +38,6 @@
 ## WebEditor-SpringBoot-Design
 - 19.8 ~ 중단 개인프로젝트, 웹기반 메모장,
 - Springboot, Thymeleaf
+### 웹 화면
+<img width="800" alt="스크린샷 2019-10-27 오후 1 42 32" src="https://user-images.githubusercontent.com/55579896/67629824-b162e080-f8bf-11e9-8321-2d448ece4045.png">
 
