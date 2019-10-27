@@ -31,7 +31,7 @@
 - 19.9 ~ 진행중 개인프로젝트, 수강신청시스템
 - JAVA SWING, WebSocket
 ### 아키텍처
-<img width="900" style="display:block; margin:0px auto;" alt="스크린샷 2019-10-27 오후 12 37 09" src="https://user-images.githubusercontent.com/55579896/67629597-53cc9500-f8bb-11e9-934b-db4182d2b18a.png">
+<img width="700" style="display:block; margin:0px auto;" alt="스크린샷 2019-10-27 오후 12 37 09" src="https://user-images.githubusercontent.com/55579896/67629597-53cc9500-f8bb-11e9-934b-db4182d2b18a.png">
 
 - - -
 
