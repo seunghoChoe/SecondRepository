@@ -4,8 +4,8 @@
 - 18.3 ~ 18.6 개인프로젝트, 그림판,
 - JAVA SWING
 ### 아키텍처
-<div sytle="border : 1px solid black">
-<img width="650" alt="스크린샷 2019-10-21 오후 5 49 19" src="https://user-images.githubusercontent.com/55579896/67191464-9a8a3d00-f42c-11e9-94aa-8abbabea8a5a.png">
+<div style="border : 1px solid black; text-align:center;">
+<img width="800" alt="스크린샷 2019-10-21 오후 5 49 19" src="https://user-images.githubusercontent.com/55579896/67191464-9a8a3d00-f42c-11e9-94aa-8abbabea8a5a.png">
 <div>
   
 - - -
@@ -31,7 +31,7 @@
 - 19.9 ~ 진행중 개인프로젝트, 수강신청시스템
 - JAVA SWING, WebSocket
 ### 아키텍처
-<img width="700" style="display:block; margin:0px auto;" alt="스크린샷 2019-10-27 오후 12 37 09" src="https://user-images.githubusercontent.com/55579896/67629597-53cc9500-f8bb-11e9-934b-db4182d2b18a.png">
+<img width="900" style="display:block; margin:0px auto;" alt="스크린샷 2019-10-27 오후 12 37 09" src="https://user-images.githubusercontent.com/55579896/67629597-53cc9500-f8bb-11e9-934b-db4182d2b18a.png">
 
 - - -
 
