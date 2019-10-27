@@ -25,6 +25,14 @@
 ### 아키텍처
 <img width="1100" alt="스크린샷 2019-10-21 오후 6 54 13" src="https://user-images.githubusercontent.com/55579896/67195624-3c615800-f434-11e9-96e5-66062833e9c0.png">
 
+- - - 
+
+## Socket_LMS
+- 19.9 ~ 진행중 개인프로젝트, 수강신청시스템
+- JAVA SWING, WebSocket
+### 아키텍처
+<img width="900" style="display:block; margin:0px auto;" alt="스크린샷 2019-10-27 오후 12 37 09" src="https://user-images.githubusercontent.com/55579896/67629597-53cc9500-f8bb-11e9-934b-db4182d2b18a.png">
+
 - - -
 
 ## WebEditor-SpringBoot-Design
