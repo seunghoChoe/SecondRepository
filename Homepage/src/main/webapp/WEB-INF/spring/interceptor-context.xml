@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:mvc="http://www.springframework.org/schema/mvc"
+             xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 사용자 인증에 대한 AuthenticationInterceptor 빈 등록 -->
+    <beans:bean id="authenticationInterceptor" class="com.demo.global.utils.AuthenticationInterceptor"/>
+    <!-- 사용자 권한에 대한 AuthenticationInterceptor 빈 등록 -->
+    <beans:bean id="authorizationInterceptor" class="com.demo.global.utils.AuthorizationInterceptor"/>
+    <!-- 사용자 권한에 대한 AuthorizationHelper 빈 등록 -->
+    <beans:bean id="authorizationHelper" class="com.demo.global.utils.AuthorizationHelper"/>
+
+    <mvc:interceptors>
+        <!-- 작성 순서대로 인터셉터가 실행된다. (authenticationInterceptor -> authorizationInterceptor -> ...) -->
+
+        <!-- AuthenticationInterceptor 가 적용될 URL 지정 (로그인이 필요한 URL) -->
+        <mvc:interceptor>
+            <mvc:mapping path="/board/**"/>
+            <mvc:mapping path="/admin/**"/>
+            <mvc:mapping path="/user/**"/>
+            <mvc:mapping path="/locker/**"/>
+
+            <!-- 제외할 리소스 및 URL 목록 -->
+            <mvc:exclude-mapping path="/resources/**"/>
+
+            <beans:ref bean="authenticationInterceptor"/>
+        </mvc:interceptor>
+
+        <!-- AuthorizationInterceptor 가 적용될 URL 지정 (권한이 필요한 URL) -->
+        <mvc:interceptor>
+            <mvc:mapping path="/board/**"/>
+            <mvc:mapping path="/admin/**"/>
+            <mvc:mapping path="/user/**"/>
+            <mvc:mapping path="/locker/**"/>
+
+            <!-- 제외할 리소스 및 URL 목록 -->
+            <mvc:exclude-mapping path="/resources/**"/>
+
+            <beans:ref bean="authorizationInterceptor"/>
+        </mvc:interceptor>
+
+    </mvc:interceptors>
+</beans:beans>

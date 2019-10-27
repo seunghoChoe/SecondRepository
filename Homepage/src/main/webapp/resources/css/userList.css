@@ -1,0 +1,40 @@
+#userListJumbotron {
+    background-color: white;
+    max-width: 1500px;
+    margin: 150px auto;
+    text-align: center;
+    color: #6c6c6c;
+    border: 2px solid peachpuff;
+}
+
+.table, th, tr {
+    border: 3px solid peachpuff !important;
+}
+
+tbody td {
+    background-color: papayawhip;
+    border: 3px solid peachpuff !important;
+}
+
+.th-sm {
+    text-align: center;
+    background-color: peachpuff;
+}
+
+#dtBasicExample {
+    text-align: center;
+}
+
+.fas {
+    color: peachpuff;
+}
+
+.btn, .alert {
+    background-color: darksalmon;
+    border: none;
+    color: white;
+}
+
+.btn:hover {
+    background-color: peachpuff !important;
+}

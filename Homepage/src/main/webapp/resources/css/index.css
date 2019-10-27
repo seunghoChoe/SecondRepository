@@ -1,0 +1,70 @@
+
+.index .a {
+    /* a태그 하이퍼링크 밑줄 없앰 */
+    text-decoration: none;
+}
+
+/* ---------------------------------------------------------------------- */
+
+/* 중간 quick 테이블 */
+
+#quick {
+    /* quick 테이블 전체설정 */
+    align-content: center;
+    border: 20px solid white;
+    margin-top: 20px;
+}
+
+#quick th {
+    text-align: left;
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#quick th, td {
+    /*quick 테이블 간격설정*/
+    border-right: 25px solid white;
+    border-left: 25px solid white;
+    border-top: 8px solid white;
+    border-bottom: 8px solid white;
+}
+
+#quick .second img {
+    height: 130px;
+    width: 270px;
+}
+
+#quick a {
+    text-decoration: none;
+    color: black;
+}
+
+#quick .third {
+    text-align: left;
+}
+
+/* ---------------------------------------------------------------------- */
+
+/* 최상단가기 */
+.topButton {
+    position: fixed;
+    bottom: 5px;
+    right: 15px;
+}
+
+.topButton img {
+    width: 28px;
+    height: auto;
+}
+
+#pageup {
+    border: 0;
+    outline: 0;
+    overflow: hidden;
+    opacity: 0.6;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+/* ---------------------------------------------------------------------- */

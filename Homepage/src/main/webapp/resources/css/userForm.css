@@ -1,0 +1,27 @@
+#join_jumbotron {
+	max-width: 500px;
+	padding: 15px 50px 50px;
+	margin: 150px auto;
+	text-align: center;
+}
+
+#login_jumbotron {
+	max-width: 500px;
+    padding: 15px 50px 50px;
+	margin: 150px auto;
+	text-align: center;
+}
+
+#modify_info_jumbotron {
+	max-width: 500px;
+    padding: 15px 50px 50px;
+	margin: 150px auto;
+	text-align: center;
+}
+
+#modify_security_jumbotron {
+	max-width: 500px;
+    padding: 15px 50px 50px;
+	margin: 150px auto;
+	text-align: center;
+}

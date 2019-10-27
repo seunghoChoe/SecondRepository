@@ -1,0 +1,23 @@
+.body {
+    padding: 10px;
+}
+
+/* 게시글 수정 헤더 */
+.boardHeader {
+    font-size: 15px;
+}
+
+/* 게시글 제목 글자수 표시 */
+#titleCounter {
+    color: #aaa;
+}
+
+/* 게시글 내용 폼 크기 */
+#editor {
+    height: 400px;
+}
+
+/* 게시글 내용 글자수 표시 */
+#contentCounter {
+    color: #aaa;
+}

@@ -1,0 +1,53 @@
+#user_detail_jumbotron {
+    background-color: white;
+    max-width: 700px;
+    padding: 30px 30px 45px;
+    margin: 150px auto;
+    text-align: center;
+    border: 2px solid papayawhip;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.table {
+    text-align: center;
+    width: 600px;
+    height: 300px;
+}
+
+.table th {
+    text-align: center;
+    background-color: papayawhip;
+}
+
+.far {
+    color: papayawhip;
+}
+
+.col-sm-3 span {
+    color: pink;
+}
+
+.table, td, th, tr {
+    border: 3px solid antiquewhite !important;
+}
+
+.table td {
+    width: 160px;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: papayawhip;
+}
+
+#ok, #ok:active, #ok:active:focus, #ok:visited, #ok:focus {
+    background-color: darksalmon !important;
+    border-color: darksalmon !important;
+    outline: none !important;
+}
+
+#no, #no:active, #no:active:focus, #no:visited, .btn {
+    background-color: indianred !important;
+    border-color: indianred !important;
+}
