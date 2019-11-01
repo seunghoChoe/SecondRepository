@@ -17,8 +17,8 @@
 ### 아키텍처
  * 패키지 뷰
 <div style="border : 1px solid black; text-align:center;">
-<img width="800" alt="스크린샷 2019-10-21 오후 5 49 19" src="https://user-images.githubusercontent.com/55579896/67191464-9a8a3d00-f42c-11e9-94aa-8abbabea8a5a.png">
-<div>
+<img width="800" alt="스크린샷 2019-11-01 오후 6 59 01" src="https://user-images.githubusercontent.com/55579896/68017273-b073e980-fcd9-11e9-8239-595c614b9f13.png">
+</div>
   
 - - -
 
