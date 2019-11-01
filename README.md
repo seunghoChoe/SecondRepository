@@ -19,7 +19,8 @@
 - 분류 : 웹 서버 프로그램
 - 사용 기술 : Spring MVC, Spring Web, MyBatis, JSP
 ### 아키텍처
-<img width="1000" alt="스크린샷 2019-10-21 오후 6 15 02" src="https://user-images.githubusercontent.com/55579896/67193190-dc68b280-f42f-11e9-8685-cab12ac996fd.png">
+<img width="800" alt="스크린샷 2019-11-01 오후 6 02 55" src="https://user-images.githubusercontent.com/55579896/68014074-ed3be280-fcd1-11e9-9155-7a3ea568bfe3.png">
+
 
 - - -
 
