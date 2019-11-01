@@ -4,10 +4,15 @@
 #### <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/GraphicsEditor_v0.8">상세 보기</a>
 ### 프로젝트 개요
  - 기간
-   - 18.3 ~ 18.6 개인프로젝트
- - 주제 : 그림판 
- - 분류 : 응용 프로그램 
- - 사용 라이브러리 : JAVA SWING
+   - 18.3 ~ 18.6 
+ - 주제
+   - 그림판 
+ - 분류
+   - 응용 프로그램 
+ - 사용 라이브러리
+   - JAVA SWING
+ - 아키텍처 및 패턴
+   - 이벤트 드리븐 아키텍처
 
 ### 아키텍처
  * 패키지 뷰
