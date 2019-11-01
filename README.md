@@ -3,7 +3,8 @@
 ## GraphicsEditor_v0.8
 #### <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/GraphicsEditor_v0.8">상세 보기</a>
 ### 프로젝트 개요
- - 18.3 ~ 18.6 개인프로젝트
+ - 기간
+   - 18.3 ~ 18.6 개인프로젝트
  - 주제 : 그림판 
  - 분류 : 응용 프로그램 
  - 사용 라이브러리 : JAVA SWING
