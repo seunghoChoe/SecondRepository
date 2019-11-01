@@ -2,7 +2,7 @@
 
 ## GraphicsEditor_v0.8
 #### <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/GraphicsEditor_v0.8">상세 보기</a>
-### 프로젝트 개요
+### 프로젝트 개요(개인 프로젝트)
  - 기간
    - 18.3 ~ 18.6 
  - 주제
@@ -12,7 +12,7 @@
  - 사용 라이브러리
    - JAVA SWING
  - 아키텍처 및 패턴
-   - 이벤트 드리븐 아키텍처
+   - Event-Driven Architecture
 
 ### 아키텍처
  * 패키지 뷰
@@ -23,11 +23,18 @@
 - - -
 
 ## Homepage
-### 프로젝트 개요
-- 19.3 ~ 19.9 팀프로젝트
-- 주제 : 학과 홈페이지
-- 분류 : 웹 서버 프로그램
-- 사용 기술 : Spring MVC, Spring Web, MyBatis, JSP
+### 프로젝트 개요(팀프로젝트)
+- 기간 
+  - 19.3 ~ 19.9
+- 주제
+  - 학과 홈페이지
+- 분류
+  - 웹 서버 프로그램
+- 사용 기술
+  - Spring Framework
+  - MyBatis
+  - JSP 
+
 ### 아키텍처
  * 컴포넌트 뷰
 <img width="800" alt="스크린샷 2019-11-01 오후 6 02 55" src="https://user-images.githubusercontent.com/55579896/68014074-ed3be280-fcd1-11e9-9155-7a3ea568bfe3.png">
@@ -36,10 +43,13 @@
 - - -
 
 ## LMS
-### 프로젝트 개요
-- 17.9 ~ 17.12 개인프로젝트
-- 주제 : 수강신청시스템
-- 분류 : 응용 프로그램 
+### 프로젝트 개요(개인프로젝트)
+- 기간
+  - 17.9 ~ 17.12 
+- 주제
+  - 수강신청시스템
+- 분류
+  - 응용 프로그램 
 - 사용 언어 : JAVA 
 ### 아키텍처
  * 클래스 뷰
@@ -47,12 +57,19 @@
 
 - - - 
 
-## Socket_LMS
+## Socket_LMS(개인프로젝트)
 ### 프로젝트 개요
-- 19.9 ~ 진행중 개인프로젝트
-- 주제 : 수강신청시스템
-- 분류 : 소켓 통신 분산 프로그램
-- 사용 라이브러리 : JAVA SWING, JAVA WebSocket
+- 기간
+  - 19.9 ~ 진행중 
+- 주제
+  - 수강신청시스템
+- 분류
+  - 소켓 기반 분산 프로그램
+- 사용 라이브러리
+  - JAVA SWING, JAVA WebSocket
+- 아키텍처
+  - 서버-클라이언트 아키텍처
+  
 ### 아키텍처
  * 클래스 
 <img width="900" style="display:block; margin:0px auto;" alt="스크린샷 2019-10-27 오후 12 37 09" src="https://user-images.githubusercontent.com/55579896/67629597-53cc9500-f8bb-11e9-934b-db4182d2b18a.png">
@@ -60,11 +77,17 @@
 - - -
 
 ## WebEditor-SpringBoot-Design
-### 프로젝트 개요
-- 19.8 ~ 중단 개인프로젝트
-- 주제 : 웹기반 메모장
-- 분류 : 웹 프로그램 
-- Springboot, Thymeleaf
+### 프로젝트 개요(개인프로젝트)
+- 기간 
+  - 19.8 ~ 19.8(중단)
+- 주제
+  - 웹기반 메모장
+- 분류
+  - 웹 프로그램 
+- 주제
+  - 웹기반 메모장
+- 사용 기술
+  - Springboot, Thymeleaf
 ### 웹 화면
 <img width="800" alt="스크린샷 2019-10-27 오후 1 42 32" src="https://user-images.githubusercontent.com/55579896/67629824-b162e080-f8bf-11e9-8321-2d448ece4045.png">
 
