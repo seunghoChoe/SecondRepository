@@ -13,7 +13,9 @@
 ##### 6. 웹 메모장 구현 ( 19. 8 ~ 19. 8) <a href="#6" style="text-decoration:none"> 링크 </a>
  
  
+<br><br>  
 - - -
+<br>
 
 
 <h2 id="1"> 1. 식당정보 제공 서비스 구현 프로젝트</h2> 
@@ -27,6 +29,8 @@
   
 ### 아키텍처
  * 런타임 뷰
+<img width="900" alt="스크린샷 2019-11-02 오후 2 38 17" src="https://user-images.githubusercontent.com/55579896/68066633-80325680-fd7e-11e9-95a2-717116d5313a.png">
+
 
 ## <a href="https://github.com/seunghoChoe/MJU_MSA" style="font-size:0.7em"> * 상세 보기</a>
 
