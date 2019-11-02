@@ -1,8 +1,50 @@
 
+## 식당정보 제공 서비스 구현 프로젝트
+#### <a href="https://github.com/seunghoChoe/MJU_MSA">상세 보기</a>
+### 프로젝트 개요(학교 - 팀프로젝트)
+- 기간 
+  - 19.9 ~ 진행중
+- 주제
+  - 식당 정보 제공 서비스
+- 분류
+  - 웹 어플리케이션
+- 사용 기술 및 도구
+  - Springboot, SrpingCloud
+  - MyBatis
+  - JSP 
+  - Jenkins 
+- 아키텍처 
+  - MSA(Micro Service Architecture)
+  
+### 아키텍처
+ * 런타임 뷰
 
-## GraphicsEditor_v0.8
+
+## 학과 홈페이지 구현 프로젝트
+#### <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/Homepage">상세 보기</a>
+### 프로젝트 개요(학교 - 팀프로젝트)
+- 기간 
+  - 19.3 ~ 19.9
+- 주제
+  - 학과 홈페이지
+- 분류
+  - 웹 어플리케이션
+- 사용 기술
+  - Spring Framework
+  - MyBatis
+  - JSP 
+
+### 아키텍처
+ * 컴포넌트 뷰
+<img width="800" alt="스크린샷 2019-11-01 오후 6 02 55" src="https://user-images.githubusercontent.com/55579896/68014074-ed3be280-fcd1-11e9-9155-7a3ea568bfe3.png">
+
+
+- - -
+
+
+## 그림판 구현 프로젝트 
 #### <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/GraphicsEditor_v0.8">상세 보기</a>
-### 프로젝트 개요(개인 프로젝트)
+### 프로젝트 개요(학교 - 개인 프로젝트)
  - 기간
    - 18.3 ~ 18.6 
  - 주제
@@ -22,28 +64,10 @@
   
 - - -
 
-## Homepage
-### 프로젝트 개요(팀프로젝트)
-- 기간 
-  - 19.3 ~ 19.9
-- 주제
-  - 학과 홈페이지
-- 분류
-  - 웹 서버 프로그램
-- 사용 기술
-  - Spring Framework
-  - MyBatis
-  - JSP 
 
-### 아키텍처
- * 컴포넌트 뷰
-<img width="800" alt="스크린샷 2019-11-01 오후 6 02 55" src="https://user-images.githubusercontent.com/55579896/68014074-ed3be280-fcd1-11e9-9155-7a3ea568bfe3.png">
-
-
-- - -
-
-## LMS
-### 프로젝트 개요(개인프로젝트)
+## 수강신청시스템 구현 프로젝트
+#### <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/LMS">상세 보기</a>
+### 프로젝트 개요(학교 - 개인프로젝트)
 - 기간
   - 17.9 ~ 17.12 
 - 주제
@@ -57,8 +81,9 @@
 
 - - - 
 
-## Socket_LMS(개인프로젝트)
-### 프로젝트 개요
+## 소켓 기반 수강신청 시스템 구현 프로젝트
+#### <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/Socket_LMS">상세 보기</a>
+### 프로젝트 개요(학교 - 개인프로젝트)
 - 기간
   - 19.9 ~ 진행중 
 - 주제
@@ -76,7 +101,8 @@
 
 - - -
 
-## WebEditor-SpringBoot-Design
+## 웹 메모장 구현 
+#### <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/WebEditor-SpringBoot-Design">상세 보기</a>
 ### 프로젝트 개요(개인프로젝트)
 - 기간 
   - 19.8 ~ 19.8(중단)
