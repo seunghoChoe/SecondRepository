@@ -1,9 +1,12 @@
 ## 목차
 #### <a href="#1"> 1. 식당 정보 제공 서비스 구현 프로젝트 </a> 
+#### <a href="#2"> 2. 학과 홈페이지 구현 프로젝트 </a> 
+#### <a href="#3"> 3. 소켓 통신 수강신청시스템 구현 프로젝트 </a> 
+#### <a href="#4"> 4. 그림판 구현 프로젝트 </a> 
 
 - - -
 
-## <h2 id="1"> 식당정보 제공 서비스 구현 프로젝트</h2>
+<h2 id="1"> 1. 식당정보 제공 서비스 구현 프로젝트</h2>
 #### <a  href="https://github.com/seunghoChoe/MJU_MSA">상세 보기</a>
 ### 프로젝트 개요(학교 - 팀프로젝트)
 - 기간 
@@ -27,7 +30,7 @@
 - - -
 
 
-## 학과 홈페이지 구현 프로젝트
+## 2. 학과 홈페이지 구현 프로젝트
 #### <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/Homepage">상세 보기</a>
 ### 프로젝트 개요(학교 - 팀프로젝트)
 - 기간 
@@ -49,7 +52,29 @@
 - - -
 
 
-## 그림판 구현 프로젝트 
+## 3. 소켓 기반 수강신청 시스템 구현 프로젝트
+#### <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/Socket_LMS">상세 보기</a>
+### 프로젝트 개요(학교 - 개인프로젝트)
+- 기간
+  - 19.9 ~ 진행중 
+- 주제
+  - 수강신청시스템
+- 분류
+  - 소켓 기반 분산 프로그램
+- 사용 라이브러리
+  - JAVA SWING, JAVA WebSocket
+- 아키텍처
+  - 서버-클라이언트 아키텍처
+  
+### 아키텍처
+ * 클래스 
+<img width="900" style="display:block; margin:0px auto;" alt="스크린샷 2019-10-27 오후 12 37 09" src="https://user-images.githubusercontent.com/55579896/67629597-53cc9500-f8bb-11e9-934b-db4182d2b18a.png">
+
+
+- - -
+
+
+## 4. 그림판 구현 프로젝트 
 #### <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/GraphicsEditor_v0.8">상세 보기</a>
 ### 프로젝트 개요(학교 - 개인 프로젝트)
  - 기간
@@ -86,27 +111,9 @@
  * 클래스 뷰
 <img width="1100" alt="스크린샷 2019-10-21 오후 6 54 13" src="https://user-images.githubusercontent.com/55579896/67195624-3c615800-f434-11e9-96e5-66062833e9c0.png">
 
+
 - - - 
 
-## 소켓 기반 수강신청 시스템 구현 프로젝트
-#### <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/Socket_LMS">상세 보기</a>
-### 프로젝트 개요(학교 - 개인프로젝트)
-- 기간
-  - 19.9 ~ 진행중 
-- 주제
-  - 수강신청시스템
-- 분류
-  - 소켓 기반 분산 프로그램
-- 사용 라이브러리
-  - JAVA SWING, JAVA WebSocket
-- 아키텍처
-  - 서버-클라이언트 아키텍처
-  
-### 아키텍처
- * 클래스 
-<img width="900" style="display:block; margin:0px auto;" alt="스크린샷 2019-10-27 오후 12 37 09" src="https://user-images.githubusercontent.com/55579896/67629597-53cc9500-f8bb-11e9-934b-db4182d2b18a.png">
-
-- - -
 
 ## 웹 메모장 구현 
 #### <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/WebEditor-SpringBoot-Design">상세 보기</a>
