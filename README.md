@@ -12,9 +12,12 @@
 - - -
 
 
-<h2 id="1"> 1. 식당정보 제공 서비스 구현 프로젝트 </h2>
+<h2 id="1"> 1. 식당정보 제공 서비스 구현 프로젝트
+  <a href="https://github.com/seunghoChoe/MJU_MSA" style="font-size:0.7em">상세 보기</a>
+</h2> 
 
-#### <a  href="https://github.com/seunghoChoe/MJU_MSA">상세 보기</a>
+
+
 ### 프로젝트 개요(학교 - 팀프로젝트)
 - 기간 
   - 19.9 ~ 진행중
