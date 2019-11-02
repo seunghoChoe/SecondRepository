@@ -3,12 +3,20 @@
 #### 1. 식당 정보 제공 서비스 구현 프로젝트 
   <span> &nbsp;&nbsp; - 19.9 ~ 진행중 / 팀프로젝트 / <a href="#1" style="text-decoration:none"> 링크 </a> </span>
 
-  <a href="#2" style="text-decoration:none"> 2. 학과 홈페이지 구현 프로젝트 </a> <br>
-  <a href="#3" style="text-decoration:none"> 3. 소켓 통신 수강신청시스템 구현 프로젝트 </a> <br>
-  <a href="#4" style="text-decoration:none"> 4. 그림판 구현 프로젝트 </a> <br>
-  <a href="#5" style="text-decoration:none"> 5. 수강신청시스템 구현 프로젝트 </a> <br>
-  <a href="#6" style="text-decoration:none"> 6. 웹 메모장 구현  </a> <br>
+#### 2. 학과 홈페이지 구현 프로젝트 
+  <span> &nbsp;&nbsp; - 19.3 ~ 19.6 / 팀프로젝트 / <a href="#2" style="text-decoration:none"> 링크 </a> </span>
 
+#### 3. 소켓 통신 수강신청시스템 구현 프로젝트 
+  <span> &nbsp;&nbsp; - 19.9 ~ 진행중 / 개인프로젝트 / <a href="#3" style="text-decoration:none"> 링크 </a> </span>
+  
+#### 4. 그림판 구현 프로젝트 
+  <span> &nbsp;&nbsp; - 18.3 ~ 18.6 / 개인프로젝트 / <a href="#4" style="text-decoration:none"> 링크 </a> </span>
+  
+#### 5. 수강신청시스템 구현 프로젝트 
+  <span> &nbsp;&nbsp; - 17.9 ~ 17.12 / 개인프로젝트 / <a href="#5" style="text-decoration:none"> 링크 </a> </span>
+
+#### 6. 웹 메모장 구현 
+  <span> &nbsp;&nbsp; - 19.8 ~ 19.8 / 프로젝트 / <a href="#6" style="text-decoration:none"> 링크 </a> </span>
 
 
 - - -
