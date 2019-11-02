@@ -1,8 +1,7 @@
 ## 목차
 
-#### 1. 식당 정보 제공 서비스 구현 프로젝트 
-  <span> &nbsp;&nbsp; - 19.9 ~ 진행중 / 팀프로젝트 / <a href="#1" style="text-decoration:none"> 링크 </a> </span>
-<br>
+#### 1. 식당 정보 제공 서비스 구현 프로젝트 ( 19. 9 ~ 진행중 ) /  <a href="#1" style="text-decoration:none"> 링크 </a> 
+
 
 #### 2. 학과 홈페이지 구현 프로젝트 
   <span> &nbsp;&nbsp; - 19.3 ~ 19.6 / 팀프로젝트 / <a href="#2" style="text-decoration:none"> 링크 </a> </span>
