@@ -1,8 +1,9 @@
 package com.demo.global.controller;
 
-import com.demo.user.dto.UserDTO;
-import com.demo.user.service.UserService;
 import com.demo.global.utils.UserAuth;
+import com.demo.model.UserDTO;
+import com.demo.user.UserService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
