@@ -33,10 +33,11 @@
   - MyBatis
   - JSP 
   - Jenkins   
-<br><br><br>
+<br>
 
 - 아키텍처 
   - MSA(Micro Service Architecture)
+<br><br>  
   
 ### 아키텍처
  * 런타임 뷰
