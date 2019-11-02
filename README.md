@@ -12,9 +12,7 @@
 - - -
 
 
-<h2 id="1"> 1. 식당정보 제공 서비스 구현 프로젝트
-  <a href="https://github.com/seunghoChoe/MJU_MSA" style="font-size:0.7em">상세 보기</a>
-</h2> 
+<h2 id="1"> 1. 식당정보 제공 서비스 구현 프로젝트</h2> 
 
 
 
@@ -29,9 +27,10 @@
   - Springboot, SrpingCloud
   - MyBatis
   - JSP 
-  - Jenkins 
+  - Jenkins   
 - 아키텍처 
   - MSA(Micro Service Architecture)
+<a href="https://github.com/seunghoChoe/MJU_MSA" style="font-size:0.7em"> * 상세 보기 *</a>
   
 ### 아키텍처
  * 런타임 뷰
