@@ -27,11 +27,14 @@
 - 분류
   - 웹 어플리케이션
 <br>  
+
 - 사용 기술 및 도구
   - Springboot, SrpingCloud
   - MyBatis
   - JSP 
   - Jenkins   
+<br><br><br>
+
 - 아키텍처 
   - MSA(Micro Service Architecture)
   
