@@ -30,8 +30,9 @@
 
 ## <a href="https://github.com/seunghoChoe/MJU_MSA" style="font-size:0.7em"> * 상세 보기</a>
 
+<br><br>  
 - - -
-
+<br>
 
 <h2 id="2"> 2. 학과 홈페이지 구현 프로젝트 </h2>
 
@@ -48,8 +49,9 @@
 
 ## <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/Homepage"> * 상세 보기</a>
 
+<br><br>  
 - - -
-
+<br>
 
 <h2 id="3"> 3. 소켓 기반 수강신청 시스템 구현 프로젝트 </h2>
 
@@ -67,7 +69,9 @@
 
 ## <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/Socket_LMS"> * 상세 보기</a>
 
+<br><br>  
 - - -
+<br>
 
 <h2 id="4"> 4. 그림판 구현 프로젝트  </h2>
 
@@ -85,7 +89,9 @@
 
 ## <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/GraphicsEditor_v0.8"> * 상세 보기</a>
 
+<br><br>  
 - - -
+<br>
 
 <h2 id="5"> 5. 수강신청시스템 구현 프로젝트 </h2>
 
@@ -102,7 +108,9 @@
 
 ## <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/LMS"> * 상세 보기</a>
 
-- - - 
+<br><br>  
+- - -
+<br>
 
 <h2 id="6"> 6. 웹 메모장 구현 </h2>
 
