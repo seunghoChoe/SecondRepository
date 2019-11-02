@@ -35,7 +35,8 @@
 - - -
 
 
-## 2. 학과 홈페이지 구현 프로젝트
+<h2 id="2"> 2. 학과 홈페이지 구현 프로젝트 </h2>
+
 #### <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/Homepage">상세 보기</a>
 ### 프로젝트 개요(학교 - 팀프로젝트)
 - 기간 
@@ -57,7 +58,8 @@
 - - -
 
 
-## 3. 소켓 기반 수강신청 시스템 구현 프로젝트
+<h2 id="3"> 3. 소켓 기반 수강신청 시스템 구현 프로젝트 </h2>
+
 #### <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/Socket_LMS">상세 보기</a>
 ### 프로젝트 개요(학교 - 개인프로젝트)
 - 기간
@@ -78,8 +80,8 @@
 
 - - -
 
+<h2 id="4"> 4. 그림판 구현 프로젝트  </h2>
 
-## 4. 그림판 구현 프로젝트 
 #### <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/GraphicsEditor_v0.8">상세 보기</a>
 ### 프로젝트 개요(학교 - 개인 프로젝트)
  - 기간
@@ -101,8 +103,8 @@
   
 - - -
 
+<h2 id="5"> 5. 수강신청시스템 구현 프로젝트 </h2>
 
-## 수강신청시스템 구현 프로젝트
 #### <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/LMS">상세 보기</a>
 ### 프로젝트 개요(학교 - 개인프로젝트)
 - 기간
@@ -119,8 +121,8 @@
 
 - - - 
 
+<h2 id="6"> 6. 웹 메모장 구현 </h2>
 
-## 웹 메모장 구현 
 #### <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/WebEditor-SpringBoot-Design">상세 보기</a>
 ### 프로젝트 개요(개인프로젝트)
 - 기간 
