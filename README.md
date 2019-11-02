@@ -19,24 +19,10 @@
 <h2 id="1"> 1. 식당정보 제공 서비스 구현 프로젝트</h2> 
 
 ### 프로젝트 개요(학교 - 팀프로젝트)
-- 기간 
-  - 19.9 ~ 진행중
-  
-<br>  
-  
-- 분류
-  - 웹 어플리케이션
-<br>  
-
-- 사용 기술 및 도구
-  - Springboot, SrpingCloud
-  - MyBatis
-  - JSP 
-  - Jenkins   
-<br>
-
-- 아키텍처 
-  - MSA(Micro Service Architecture)
+- 기간 : 19.9 ~ 진행중
+- 분류 : 웹 어플리케이션
+- 사용 기술 및 도구 : Springboot, SrpingCloud, MyBatis, JPA, JSP, Jenkins   
+- 아키텍처 : MSA(Micro Service Architecture)
 <br><br>  
   
 ### 아키텍처
@@ -50,18 +36,9 @@
 <h2 id="2"> 2. 학과 홈페이지 구현 프로젝트 </h2>
 
 ### 프로젝트 개요(학교 - 팀프로젝트)
-- 기간 
-  - 19.3 ~ 19.9
-<br>
-
-- 분류
-  - 웹 어플리케이션
-<br>
-
-- 사용 기술
-  - Spring Framework
-  - MyBatis
-  - JSP 
+- 기간 : 19.3 ~ 19.9
+- 분류 : 웹 어플리케이션
+- 사용 기술 : Spring Framework, MyBatis, JSP 
 <br><br>
 
 ### 아키텍처
@@ -77,20 +54,10 @@
 <h2 id="3"> 3. 소켓 기반 수강신청 시스템 구현 프로젝트 </h2>
 
 ### 프로젝트 개요(학교 - 개인프로젝트)
-- 기간
-  - 19.9 ~ 진행중 
-<br>
-
-- 분류
-  - 소켓 기반 분산 프로그램
-<br>
-
-- 사용 라이브러리
-  - JAVA SWING, JAVA WebSocket
-<br>
-
-- 아키텍처
-  - 서버-클라이언트 아키텍처
+- 기간 : 19.9 ~ 진행중 
+- 분류 : 소켓 기반 분산 프로그램
+- 사용 라이브러리 : JAVA SWING, JAVA WebSocket
+- 아키텍처 : 서버-클라이언트 아키텍처
 <br><br>
   
 ### 아키텍처
