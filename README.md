@@ -108,7 +108,7 @@
 
 ### 아키텍처
  * 클래스 뷰
-<img width="1100" alt="스크린샷 2019-10-21 오후 6 54 13" src="https://user-images.githubusercontent.com/55579896/67195624-3c615800-f434-11e9-96e5-66062833e9c0.png">
+<img width="900" alt="스크린샷 2019-11-03 오후 3 08 48" src="https://user-images.githubusercontent.com/55579896/68081108-dc16e100-fe4b-11e9-8e22-f158382741cb.png">
 
 
 ## <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/LMS"> * 상세 보기</a>
