@@ -29,7 +29,7 @@
   
 ### 아키텍처
  * 런타임 뷰
-<img width="900" alt="스크린샷 2019-11-02 오후 2 38 17" src="https://user-images.githubusercontent.com/55579896/68066633-80325680-fd7e-11e9-95a2-717116d5313a.png">
+<img width="900" alt="스크린샷 2019-11-02 오후 2 38 17" src="https://user-images.githubusercontent.com/55579896/68066633-80325680-fd7e-11e9-95a2-717116d5313a.png">
 
 
 ## <a href="https://github.com/seunghoChoe/MJU_MSA" style="font-size:0.7em"> * 상세 보기</a>
@@ -41,14 +41,14 @@
 <h2 id="2"> 2. 학과 홈페이지 구현 프로젝트 </h2>
 
 ### 프로젝트 개요(학교 - 팀프로젝트)
-- 기간 : 19.3 ~ 19.9
+- 기간 : 19.3 ~ 19.6
 - 분류 : 웹 어플리케이션
 - 사용 기술 : Spring Framework, MyBatis, JSP 
 <br><br>
 
 ### 아키텍처
  * 컴포넌트 뷰
-<img width="800" alt="스크린샷 2019-11-01 오후 6 02 55" src="https://user-images.githubusercontent.com/55579896/68014074-ed3be280-fcd1-11e9-9155-7a3ea568bfe3.png">
+<img width="800" alt="스크린샷 2019-11-01 오후 6 02 55" src="https://user-images.githubusercontent.com/55579896/68014074-ed3be280-fcd1-11e9-9155-7a3ea568bfe3.png">
 
 
 ## <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/Homepage"> * 상세 보기</a>
@@ -88,7 +88,7 @@
 
 ### 아키텍처
  * 패키지 뷰
-<img width="800" alt="스크린샷 2019-11-01 오후 6 59 01" src="https://user-images.githubusercontent.com/55579896/68017273-b073e980-fcd9-11e9-8239-595c614b9f13.png">
+<img width="800" alt="스크린샷 2019-11-01 오후 6 59 01" src="https://user-images.githubusercontent.com/55579896/68017273-b073e980-fcd9-11e9-8239-595c614b9f13.png">
 
 
 ## <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/GraphicsEditor_v0.8"> * 상세 보기</a>
