@@ -68,7 +68,8 @@
   
 ### 아키텍처
  * 클래스 뷰
-<img width="900" style="display:block; margin:0px auto;" alt="스크린샷 2019-10-27 오후 12 37 09" src="https://user-images.githubusercontent.com/55579896/67629597-53cc9500-f8bb-11e9-934b-db4182d2b18a.png">
+<img width="900" alt="스크린샷 2019-11-03 오전 10 57 42" src="https://user-images.githubusercontent.com/55579896/68079176-c7752180-fe28-11e9-83b3-45ca67f171cb.png">
+
 
 
 ## <a href="https://github.com/seunghoChoe/personal-project-collection/tree/master/Socket_LMS"> * 상세 보기</a>
