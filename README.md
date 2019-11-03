@@ -23,7 +23,7 @@
 ### 프로젝트 개요(학교 - 팀프로젝트)
 - 기간 : 19.9 ~ 진행중
 - 분류 : 웹 어플리케이션
-- 사용 기술 및 도구 : Springboot, SrpingCloud, MyBatis, JPA, JSP, Jenkins   
+- 사용 기술 및 도구 : Springboot, SrpingCloud, REST API, MyBatis, JPA, JSP, Jenkins   
 - 아키텍처 : MSA(Micro Service Architecture)
 <br><br>  
   
