@@ -12,7 +12,7 @@
 <br><br>
 
 ### 화면
-<img width="600" alt="스크린샷 2019-11-03 오후 3 34 45" src="https://user-images.githubusercontent.com/55579896/68081323-7fb5c080-fe4f-11e9-90e0-efc8756c3e78.png">
+<img width="700" alt="스크린샷 2019-11-03 오후 3 34 45" src="https://user-images.githubusercontent.com/55579896/68081323-7fb5c080-fe4f-11e9-90e0-efc8756c3e78.png">
 <br>
 
-<img width="250" alt="스크린샷 2019-11-03 오후 3 34 50" src="https://user-images.githubusercontent.com/55579896/68081328-93f9bd80-fe4f-11e9-9ff3-bc7aa5be6779.png">
+<img width="500" alt="스크린샷 2019-11-03 오후 3 34 50" src="https://user-images.githubusercontent.com/55579896/68081328-93f9bd80-fe4f-11e9-9ff3-bc7aa5be6779.png">
