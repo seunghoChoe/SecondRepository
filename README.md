@@ -4,7 +4,8 @@
 
 #### 2. 학과 홈페이지 구현 프로젝트 ( 19. 3 ~ 19. 6 ) <a href="#2" style="text-decoration:none"> 링크 </a>
 
-##### 3. 소켓 통신 수강신청시스템 구현 프로젝트 ( 19. 9 ~ 진행중 ) <a href="#3" style="text-decoration:none"> 링크 </a>
+##### 3. 소켓 기반 수강신청시스템 구현 프로젝트 ( 19. 9 ~ 진행중 ) <a href="#3" style="text-decoration:none"> 링크 </a>
+        3-1 소켓 기반 RMI 구현(19.10 ~ 19.11)
   
 ##### 4. 그림판 구현 프로젝트 ( 18. 3 ~ 18. 6 ) <a href="#4" style="text-decoration:none"> 링크 </a>
   
