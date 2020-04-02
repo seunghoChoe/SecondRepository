@@ -29,7 +29,7 @@
 <br><br>  
   
 ### 아키텍처
- * 런타임 뷰
+ * 배포 뷰
  <img width="900" alt="스크린샷 2019-12-09 오후 12 01 20" src="https://user-images.githubusercontent.com/55579896/70403930-ad5bde00-1a7b-11ea-8a14-02caebf92308.png">
 
 
